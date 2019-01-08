@@ -1,6 +1,7 @@
 
 <template>
   <div>
+    <Label>{{label}}</Label>
     <input type="checkbox" @click="getHobby" name="hobby" value="sporten">
     <label for="hobby">sporten</label>
     <input type="checkbox" @click="getHobby" name="hobby" value="muziek">
@@ -24,14 +25,15 @@ export default {
       hobies: []
     };
   },
+  props: ["label"],
   methods: {
     getHobby(event) {
       if (event.target.checked) {
         this.hobies.push(event.target.value);
-      }else{
-          this.hobies=this.hobies.filter(a=>a!=event.target.value)
+      } else {
+        this.hobies = this.hobies.filter(a => a != event.target.value);
       }
-       EventBus.$emit('hobyChanged',this.hobies);
+      EventBus.$emit("hobyChanged", this.hobies);
     }
   }
 };
