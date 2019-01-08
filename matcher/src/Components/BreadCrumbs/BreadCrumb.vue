@@ -1,8 +1,8 @@
 <template>
   <div class="BreadCrumb-container">
-    <div :class="{'circle-active': isActive}" class="circle">{{pageNumber}}
+    <div :class="{'circle--active': isActive}" class="circle">{{pageNumber}}
     </div>
-    <hr :class="{'breadcrumb_hr-active': isActive}" class="breadcrumb_hr" v-show="pageNumber<5">
+    <hr :class="{'breadcrumb__hr--active': isActive}" class="breadcrumb__hr" v-show="pageNumber<5">
   </div>
 </template>
 
@@ -41,20 +41,20 @@
     
   }
 
-  .circle-active {
+  .circle--active {
     background-color: #0f1941;
     color: #fff;
     border: 1px solid #0f1941;
   }
 
-  .breadcrumb_hr {
+  .breadcrumb__hr {
     height: 1px;
     width: 100px;
     margin: auto;
     background-color: #0f1941;
   }
 
-  .breadcrumb_hr-active {
+  .breadcrumb__hr--active {
     height: 3px;
     transition: 0.2s;
     border-radius: 10px;
