@@ -1,14 +1,14 @@
 <template>
   <div>
     <br>
-    <text-input-field whatToChange="name" label="What is je naam? "/>
+    <text-input-field whatToChange="name" label="Wat is je naam? "/>
     <br>
     <text-input-field
       whatToChange="selfInfo"
       label="Hoe zou je jezelf willen introduceren in één zin? "
     />
     <br>
-    <image-input-field/>
+    <image-input-field label='Upload je foto, zodat wij een profiel voor je kunnen aanmaken.'/>
     <br>
     <hobies/>
     <br>
