@@ -1,9 +1,16 @@
 <template>
   <div>
     <Logo/>
-    <bread-crumb/>
+    <div class="Bread-Crumbs" v-if="currentPage>0">
+      <bread-crumb
+        v-for="(pageNumber,index) in pageNumbers"
+        :key="index"
+        :pageNumber="pageNumber"
+        @click.native="goToPageNumber(pageNumber)"
+      />
+    </div>
     <IntroductionPage v-show="currentPage==0"/>
-    <wie-ben-ik v-show="currentPage==1" />
+    <wie-ben-ik v-show="currentPage==1"/>
     <werk v-show="currentPage==2"/>
     <previous-button text="previous" v-if="currentPage>1" :onClick="goToPreviousPage"/>
     <next-button
@@ -20,8 +27,8 @@ import IntroductionPage from "./Pages/IntroductionPage/Introduction";
 import WieBenIk from "./Pages/WieBenIk/WieBenIk";
 import Werk from "./Pages/WerkPage/Werk";
 import Button from "./Components/Buttons/Button";
-import Logo from './Components/Logo/Logo';
-import BreadCrumb from './Components/BreadCrumbs/BreadCrumb';
+import Logo from "./Components/Logo/Logo";
+import BreadCrumb from "./Components/BreadCrumbs/BreadCrumb";
 export default {
   components: {
     IntroductionPage: IntroductionPage,
@@ -29,17 +36,18 @@ export default {
     Werk: Werk,
     previousButton: Button,
     nextButton: Button,
-    Logo:Logo,
-    BreadCrumb:BreadCrumb
+    Logo: Logo,
+    BreadCrumb: BreadCrumb
   },
   name: "app",
   data() {
     return {
       currentPage: 0,
+      pageNumbers: [1, 2, 3, 4, 5],
       person: {
         name: "",
         image: null,
-        hobies:[]
+        hobies: []
       }
     };
   },
@@ -53,16 +61,18 @@ export default {
         EventBus.$on("imageTaken", image => {
           this.person.image = image;
         });
-          EventBus.$on("hobyChanged", hobies => {
+        EventBus.$on("hobyChanged", hobies => {
           this.person.hobies = hobies;
         });
-        
       }
     },
     goToPreviousPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
       }
+    },
+    goToPageNumber(index) {
+      this.currentPage = index;
     }
   }
 };
