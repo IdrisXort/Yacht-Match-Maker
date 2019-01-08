@@ -47,7 +47,8 @@ export default {
       person: {
         name: "",
         image: null,
-        hobies: []
+        hobies: [],
+        info:''
       }
     };
   },
@@ -63,6 +64,9 @@ export default {
         });
         EventBus.$on("hobyChanged", hobies => {
           this.person.hobies = hobies;
+        });
+        EventBus.$on("SelfInfoChanged", info => {
+          this.person.info = info;
         });
       }
     },
