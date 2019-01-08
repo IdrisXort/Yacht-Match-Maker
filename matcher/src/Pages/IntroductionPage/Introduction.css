@@ -1,0 +1,12 @@
+.introduction {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+  }
+  .introduction--image {
+    width: 450;
+  }
+  .introduction-Container{
+  
+  }
