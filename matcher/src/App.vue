@@ -6,6 +6,7 @@
         v-for="(pageNumber,index) in pageNumbers"
         :key="index"
         :pageNumber="pageNumber"
+        :isActive="pageNumber==currentPage"
         @click.native="goToPageNumber(pageNumber)"
       />
     </div>

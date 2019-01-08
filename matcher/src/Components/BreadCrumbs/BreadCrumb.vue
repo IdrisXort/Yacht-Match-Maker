@@ -1,37 +1,66 @@
 <template>
   <div class="BreadCrumb-container">
-    <button class="circle">{{pageNumber}}</button>
-    <hr>
+    <div :class="{'circle-active': isActive}" class="circle">{{pageNumber}}
+    </div>
+    <hr :class="{'breadcrumb_hr-active': isActive}" class="breadcrumb_hr" v-show="pageNumber<5">
   </div>
 </template>
 
 <script>
-import { EventBus } from "../../Event-bus";
-export default {
-  data() {
-    return {
-      pageNumber: 0
-    };
-  },
-  props: ["pageNumber"]
-};
+  import { EventBus } from "../../Event-bus";
+  export default {
+    data() {
+      return {
+        pageNumber: 0,
+      },
+      methods
+      ;
+    },
+    props: ["pageNumber", "isActive"]
+  };
 </script>
 <style>
-.circle {
-  display: flex;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  text-align: center;
-  margin: auto;
-}
-hr {
-  width: 100px;
-}
-.BreadCrumb-container {
-  display: flex;
-  align-items: center;
-}
-</style>
+  .circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 12px;
+    line-height: 35px;
+    text-align: center;
+    margin: 10px 5px;
+    background-color: #fff;
+    color: #0f1941;
+    cursor: pointer;
+    border: 1px solid #0f1941;
+  }
 
+  .circle:hover {
+    background-color: #0f1941;
+    color: #fff;
+    transition: 0.3s;
+    
+  }
+
+  .circle-active {
+    background-color: #0f1941;
+    color: #fff;
+    border: 1px solid #0f1941;
+  }
+
+  .breadcrumb_hr {
+    height: 1px;
+    width: 100px;
+    margin: auto;
+    background-color: #0f1941;
+  }
+
+  .breadcrumb_hr-active {
+    height: 3px;
+    transition: 0.2s;
+    border-radius: 10px;
+  }
+
+  .BreadCrumb-container {
+    display: inline-flex;
+  }
+</style>
