@@ -13,12 +13,9 @@
     <IntroductionPage v-show="currentPage==0"/>
     <wie-ben-ik v-show="currentPage==1"/>
     <werk v-show="currentPage==2"/>
+    <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
     <previous-button text="previous" v-if="currentPage>1" :onClick="goToPreviousPage"/>
-    <next-button
-      :text="currentPage==0?'start':'next'"
-      v-show="currentPage>-1"
-      :onClick="goToNextPage"
-    />
+    <next-button text="next" v-show="currentPage>0" :onClick="goToNextPage"/>
   </div>
 </template>
 
@@ -37,6 +34,7 @@ export default {
     Werk: Werk,
     previousButton: Button,
     nextButton: Button,
+    startButton: Button,
     Logo: Logo,
     BreadCrumb: BreadCrumb
   },
