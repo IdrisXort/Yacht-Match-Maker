@@ -30,6 +30,7 @@ import Werk from "./Pages/WerkPage/Werk";
 import Button from "./Components/Buttons/Button";
 import Logo from "./Components/Logo/Logo";
 import BreadCrumb from "./Components/BreadCrumbs/BreadCrumb";
+import data from "./data.json";
 export default {
   components: {
     IntroductionPage: IntroductionPage,
@@ -45,11 +46,12 @@ export default {
     return {
       currentPage: 0,
       pageNumbers: [1, 2, 3, 4, 5],
+      questions: data.questions,
       person: {
         name: "",
         image: null,
         hobies: [],
-        info:''
+        info: ""
       }
     };
   },
