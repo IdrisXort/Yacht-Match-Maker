@@ -10,19 +10,19 @@
     <br>
     <image-input-field label='Upload je foto, zodat wij een profiel voor je kunnen aanmaken.'/>
     <br>
-    <hobies label='Wat zijn je hobby’s? (meerdere keuzes mogelijk)'/>
+    <hobbies label='Wat zijn je hobby’s? (meerdere keuzes mogelijk)'/>
     <br>
   </div>
 </template>
 <script>
 import TextInputField from "../../Components/TextInputField/TextInputField";
 import ImageInputField from "./../../Components/ImageInputField/ImageInputField";
-import Hobies from "../../Components/Hobies/Hobies";
+import Hobbies from "../../Components/Hobbies/Hobbies";
 export default {
   components: {
     TextInputField: TextInputField,
     ImageInputField: ImageInputField,
-    Hobies: Hobies
+    Hobbies: Hobbies
   },
   data() {
     return {};

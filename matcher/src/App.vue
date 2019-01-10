@@ -48,7 +48,7 @@ export default {
       person: {
         name: "",
         image: null,
-        hobies: [],
+        hobbies: [],
         info:''
       }
     };
@@ -63,8 +63,8 @@ export default {
         EventBus.$on("imageTaken", image => {
           this.person.image = image;
         });
-        EventBus.$on("hobyChanged", hobies => {
-          this.person.hobies = hobies;
+        EventBus.$on("hobyChanged", hobbies => {
+          this.person.hobbies = hobbies;
         });
         EventBus.$on("SelfInfoChanged", info => {
           this.person.info = info;

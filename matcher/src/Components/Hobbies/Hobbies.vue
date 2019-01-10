@@ -22,18 +22,18 @@ import { EventBus } from "../../Event-bus";
 export default {
   data() {
     return {
-      hobies: []
+      hobbies: []
     };
   },
   props: ["label"],
   methods: {
     getHobby(event) {
       if (event.target.checked) {
-        this.hobies.push(event.target.value);
+        this.hobbies.push(event.target.value);
       } else {
-        this.hobies = this.hobies.filter(a => a != event.target.value);
+        this.hobbies = this.hobbies.filter(a => a != event.target.value);
       }
-      EventBus.$emit("hobyChanged", this.hobies);
+      EventBus.$emit("hobyChanged", this.hobbies);
     }
   }
 };
