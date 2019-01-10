@@ -11,7 +11,7 @@
       />
     </div>
     <IntroductionPage v-show="currentPage==0"/>
-    <wie-ben-ik v-show="currentPage==1"/>
+    <wie-ben-ik v-show="currentPage==1" :hobies="hobies"/>
     <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
     <werk v-show="currentPage==3"/>
     <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
@@ -49,6 +49,7 @@ export default {
       currentPage: 0,
       pageNumbers: [1, 2, 3, 4, 5],
       questions: data.questions,
+      hobies:data.hobies,
       person: {
         unProcessedData: {
           name: "",
