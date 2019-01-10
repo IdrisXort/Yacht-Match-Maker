@@ -12,20 +12,17 @@
     <br>
     <hobies label='Wat zijn je hobby’s? (meerdere keuzes mogelijk)'/>
     <br>
-    <CheckboxField />
   </div>
 </template>
 <script>
 import TextInputField from "../../Components/TextInputField/TextInputField";
 import ImageInputField from "./../../Components/ImageInputField/ImageInputField";
 import Hobies from "../../Components/Hobies/Hobies";
-import CheckboxField from "../../Components/CheckboxField/CheckboxField"
 export default {
   components: {
     TextInputField: TextInputField,
     ImageInputField: ImageInputField,
-    Hobies: Hobies,
-    CheckboxField: CheckboxField,
+    Hobies: Hobies
   },
   data() {
     return {};

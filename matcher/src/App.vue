@@ -38,7 +38,7 @@ export default {
     previousButton: Button,
     nextButton: Button,
     Logo: Logo,
-    BreadCrumb: BreadCrumb,
+    BreadCrumb: BreadCrumb
   },
   name: "app",
   data() {
