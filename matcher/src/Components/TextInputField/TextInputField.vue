@@ -34,7 +34,7 @@ export default {
     color:black;
     border: 2px solid #192a56;
     border-radius:5px;
-    width: 50%; /* moet nog bepaald worden watvoor width het krijgt en als het 50% is dat het op mobiel/tablet 100% is*/
+    width: 100%; /* moet nog bepaald worden watvoor width het krijgt*/
     padding: 5px;
     margin-top: 10px;
     font-size: 14px;
