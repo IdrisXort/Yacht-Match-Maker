@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <Logo/>
     <div class="Bread-Crumbs" v-if="currentPage>0">
       <bread-crumb
