@@ -1,8 +1,8 @@
 <template>
   <li>
     <Label>{{question}}</Label>
-    <input type="radio" v-model="selectedOption" :value="option1">
-    <input type="radio" v-model="selectedOption" :value="option2">
+    <input type="radio" v-model="selectedOption" @click="getSkill" :value="option1">
+    <input type="radio" v-model="selectedOption" @click="getSkill" :value="option2">
   </li>
 </template>
 
@@ -11,14 +11,16 @@ import { EventBus } from "../../Event-bus";
 export default {
   data() {
     return {
-      selectedOption: null
+      selectedOption: null,
+      index: this.index,
     };
   },
-  props: ["question", "option1", "option2"],
+  props: ["question", "option1", "option2", "getOption", "index"],
   methods: {
     getSkill: function(event) {
       if (event.target.checked) {
-        EventBus.$emit("optionChanged", event.target.value);
+        this.selectedOption = event.target.value;
+        this.getOption(this.index, this.selectedOption);
       }
     }
   }

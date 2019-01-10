@@ -78,12 +78,10 @@ export default {
         EventBus.$on("SelfInfoChanged", info => {
           this.person.unProcessedData.info = info;
         });
-        EventBus.$on("optionChanged", skill => {
-          let arr = this.person.processiveData.softSkills;
-          if (!arr.includes(skill)) {
-            arr.push(skill);
-          }
-          this.person.processiveData.softSkills = arr;
+        EventBus.$on("SoftSkillsDone", softSkills => {
+          console.log(softSkills);
+          
+          this.person.processiveData.softSkills = softSkills;
         });
       }
     },

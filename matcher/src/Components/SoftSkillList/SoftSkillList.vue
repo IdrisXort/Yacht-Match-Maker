@@ -7,12 +7,13 @@
       :option1="question.option1"
       :option2="question.option2"
       :index="index"
-      @click.native="handleClick"
+      :getOption="getOption"
     />
   </ul>
 </template>
 
 <script>
+import {EventBus} from '../../Event-bus';
 import SoftSkill from "../SoftSkill/SoftSkill";
 export default {
   props: ["questions"],
@@ -21,16 +22,19 @@ export default {
   },
   data() {
     return {
-      SoftSkills: []
+      options: [],
+      chosenNumber: 0
     };
   },
   methods: {
-    handleClick(event) {
-      console.log(event.target);
-
-
-
-      
+    getOption(index, option) {
+      if (typeof this.options[index] == "undefined") {
+        this.chosenNumber++;
+      }
+      this.options[index] = option;
+      if(this.chosenNumber==10){
+        EventBus.$emit('SoftSkillsDone',this.options);
+      }
     }
   }
 };
