@@ -29,6 +29,17 @@ export default {
     background-color: #192a56;
   } 
 
+  .btn:focus {
+    border-color: #273c75;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(39, 60, 117,1.0);
+  }
+
+  .btn:hover {
+   /* we zien wel wat de hover wordt voor nu even iets subtiel*/
+    border-color: #273c75;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(39, 60, 117,1.0);
+  }
+
   .button__start {
     background-color: #e84118;
   }
@@ -42,10 +53,5 @@ export default {
     font-size: 14px;
     margin-right: .5em;
   }
-
-  button:hover {
-   background: linear-gradient(100deg,#192a56,#e84118);
-   /* we zien wel wat de hover wordt voor nu even gradient*/
-}
 
 </style>
