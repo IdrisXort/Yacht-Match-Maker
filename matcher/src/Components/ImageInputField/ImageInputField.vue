@@ -38,6 +38,7 @@ export default {
     font-weight: 700;
     line-height: 25px;
     background-color: #192a56;
+    cursor: pointer;
   } 
 
   .icon__left{
