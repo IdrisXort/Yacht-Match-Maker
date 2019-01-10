@@ -10,7 +10,7 @@ export default {
   props: ["onClick", "text"],
   data() {
     return {
-      className:'btn button__'+this.text,
+      className:'btn button button__'+this.text,
       previousIcon:this.text == 'previous',
       nextIcon:this.text == 'next',
     };
@@ -18,7 +18,7 @@ export default {
 };
 </script>
 <style scoped>
-  .btn {
+  .button {
     color:white;
     border:none;
     border-radius:6px;
@@ -29,8 +29,31 @@ export default {
     background-color: #192a56;
   } 
 
+  .btn:focus {
+    border-color: #273c75;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(39, 60, 117,1.0);
+  }
+
+  .button:hover {
+   /* we zien wel wat de hover wordt voor nu even iets subtiel en kijken of wit wel handig is als hover*/
+    background-color: white;
+    color: #192a56;
+    border: 1px solid #192a56;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(39, 60, 117,1.0);
+    transition: 0.3s;
+  }
+
   .button__start {
     background-color: #e84118;
+  }
+
+  .button__start:hover {
+   /* we zien wel wat de hover wordt voor nu even iets subtiel en kijken of wit wel handig is als hover*/
+    background-color: white;
+    color: #e84118;
+    border: 1px solid #e84118;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(232, 65, 24,1.0);
+    transition: 0.3s;
   }
 
   .icon__right {
@@ -42,10 +65,5 @@ export default {
     font-size: 14px;
     margin-right: .5em;
   }
-
-  button:hover {
-   background: linear-gradient(100deg,#192a56,#e84118);
-   /* we zien wel wat de hover wordt voor nu even gradient*/
-}
 
 </style>
