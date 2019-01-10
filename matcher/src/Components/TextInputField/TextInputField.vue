@@ -1,7 +1,7 @@
 <template>
 <div>
 <Label class="label">{{label}}</Label>
-  <input type="text" :whatToChange="whatToChange" @change="changeName" class="input__field input__fold">
+  <input type="text" :whatToChange="whatToChange" @change="changeName" class="input__field">
 </div>
 </template>
 <script>
