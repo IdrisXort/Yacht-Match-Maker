@@ -1,13 +1,18 @@
 <template>
-    <div>
-        dit is werk paginaa
-    </div>
+  <div>
+    <br>
+    <skills label='Welke programmeer-skills beheer je? (meerdere keuzes mogelijk)'/>
+    <br>
+  </div>
 </template>
 <script>
+import Skills from "../../Components/HardSkills/HardSkills";
 export default {
-    data(){
-        return{}
-    }
-}
+  components: {
+    Skills: Skills
+  },
+  data() {
+    return {};
+  }
+};
 </script>
-
