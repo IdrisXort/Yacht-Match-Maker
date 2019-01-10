@@ -1,19 +1,54 @@
 {
   "questions": [
-    "Ik zoek zelf naar nieuwe ervaringen.",
-    "Ik ben een practicus.",
-    "Als ik mij in een nieuwe situatie bevind, waarin ik uitgedaagd word, dan ben ik liever denkend bezig dan voelend.",
-    "Bezinning spreekt me meer aan dan nieuwe ideeën uitproberen.",
-    "Ik vind het moeilijk om nieuwe ideeën uit te vinden.",
-    "Ik zorg ervoor dat ik niet overhaast conclusies trek.",
-    "Ik trek mij graag terug om alle aspecten van de situatie te overzien.",
-    "Ik kan mij van mijn beste kanten laten zien wanneer er in een lastige situatie snel en doortastend gehandeld moet worden.",
-    "In gesprekken met anderen ben ik meestal degene die het meest neutraal en objectief kan zijn.",
-    "Als ik me in een nieuwe situatie bevind, waarin ik uitgedaagd word, dan ben ik liever al doende bezig dan “toekijkend”.",
-    "Problemen los ik het liefste op door een systematische aanpak.",
-    "Ik luister meer dan dat ik praat.",
-    "Concrete ervaringen opdoen trekt me meer aan dan abstract denken.",
-    "Als ik me in een nieuwe situatie bevind waarin ik uitgedaagd word, dan kijk ik liever toe dan dat ik mij er actief in stort.",
-    "In gesprekken en besprekingen ben ik vaak een bron van nieuwe ideeën."
+    {
+      "question": "Als ik mij in een nieuwe situatie bevind, waarin ik uitgedaagd word, dan ben ik liever denkend bezig dan voelend.",
+      "option1": "Praktisch",
+      "option2": "Theoretisch"
+    },
+    {
+      "question": " Flexibility Vraag",
+      "option1": "Flexibel",
+      "option2": "Standvastig"
+    },
+    {
+      "question": " Serieus Vraag",
+      "option1": "Serieus",
+      "option2": "Speels"
+    },
+    {
+      "question": " Onderdanig Vraag",
+      "option1": "Onderdanig",
+      "option2": "Bazig"
+    },
+    {
+      "question": " Veelzijdig Vraag",
+      "option1": "Veelzijdig",
+      "option2": "Gespecialiseerd"
+    },
+    {
+      "question": " Dialoog Vraag",
+      "option1": "Dialoog",
+      "option2": "Monoloog"
+    },
+    {
+      "question": " Digitaal Vraag",
+      "option1": "Digitaal",
+      "option2": "Analog"
+    },
+    {
+      "question": " Druk Vraag",
+      "option1": "Druk",
+      "option2": "Rustig"
+    },
+    {
+      "question": " Samenwerken Vraag",
+      "option1": "Samenwerken",
+      "option2": "Individualistisch"
+    },
+    {
+      "question": " Creatief Vraag",
+      "option1": "Creatief",
+      "option2": "Gedisciplineerd"
+    }
   ]
 }
