@@ -13,7 +13,6 @@
     <IntroductionPage v-show="currentPage==0"/>
     <wie-ben-ik v-show="currentPage==1"/>
     <werk v-show="currentPage==2"/>
-    <CheckboxField />
     <previous-button text="previous" v-if="currentPage>1" :onClick="goToPreviousPage"/>
     <next-button
       :text="currentPage==0?'start':'next'"
@@ -31,7 +30,6 @@ import Werk from "./Pages/WerkPage/Werk";
 import Button from "./Components/Buttons/Button";
 import Logo from "./Components/Logo/Logo";
 import BreadCrumb from "./Components/BreadCrumbs/BreadCrumb";
-import CheckboxField from "./Components/CheckboxField/CheckboxField"
 export default {
   components: {
     IntroductionPage: IntroductionPage,
@@ -41,7 +39,6 @@ export default {
     nextButton: Button,
     Logo: Logo,
     BreadCrumb: BreadCrumb,
-    CheckboxField: CheckboxField,
   },
   name: "app",
   data() {
