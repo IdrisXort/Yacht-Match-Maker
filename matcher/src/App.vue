@@ -13,9 +13,13 @@
     <IntroductionPage v-show="currentPage==0"/>
     <wie-ben-ik v-show="currentPage==1"/>
     <werk v-show="currentPage==2"/>
-    <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
+    <CheckboxField />
     <previous-button text="previous" v-if="currentPage>1" :onClick="goToPreviousPage"/>
-    <next-button text="next" v-show="currentPage>0" :onClick="goToNextPage"/>
+    <next-button
+      :text="currentPage==0?'start':'next'"
+      v-show="currentPage>-1"
+      :onClick="goToNextPage"
+    />
   </div>
 </template>
 
@@ -27,7 +31,7 @@ import Werk from "./Pages/WerkPage/Werk";
 import Button from "./Components/Buttons/Button";
 import Logo from "./Components/Logo/Logo";
 import BreadCrumb from "./Components/BreadCrumbs/BreadCrumb";
-import data from "./data.json";
+import CheckboxField from "./Components/CheckboxField/CheckboxField"
 export default {
   components: {
     IntroductionPage: IntroductionPage,
@@ -35,21 +39,20 @@ export default {
     Werk: Werk,
     previousButton: Button,
     nextButton: Button,
-    startButton: Button,
     Logo: Logo,
-    BreadCrumb: BreadCrumb
+    BreadCrumb: BreadCrumb,
+    CheckboxField: CheckboxField,
   },
   name: "app",
   data() {
     return {
       currentPage: 0,
       pageNumbers: [1, 2, 3, 4, 5],
-      questions: data.questions,
       person: {
         name: "",
         image: null,
         hobies: [],
-        info: ""
+        info:''
       }
     };
   },
