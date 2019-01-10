@@ -1,7 +1,7 @@
 <template>
 <div>
 <Label class="label">{{label}}</Label>
-  <input type="text" :whatToChange="whatToChange" @change="changeName" class="input__field">
+  <input type="text" :whatToChange="whatToChange" @change="changeName" class="form-control input__field">
 </div>
 </template>
 <script>
@@ -41,9 +41,8 @@ export default {
     line-height: 20px;
     }
 
-  .input__field:focus {
-    border-color: #192a56;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(3, 5, 83, 0.6);
-
+  .form-control:focus {
+    border-color: #273c75;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(39, 60, 117,1.0);
   }
 </style>
