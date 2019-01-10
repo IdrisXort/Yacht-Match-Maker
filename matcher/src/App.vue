@@ -49,13 +49,14 @@ export default {
         name: "",
         image: null,
         hobies: [],
-        info: ""
+        info: "",
+        skills: []
       }
     };
   },
   methods: {
     goToNextPage() {
-      if (this.currentPage < 2) {
+      if (this.currentPage < 6) {
         this.currentPage++;
         EventBus.$on("nameChanged", name => {
           this.person.name = name;
@@ -68,6 +69,9 @@ export default {
         });
         EventBus.$on("SelfInfoChanged", info => {
           this.person.info = info;
+        });
+        EventBus.$on("skillChanged", skills => {
+          this.person.skills = skills;
         });
       }
     },

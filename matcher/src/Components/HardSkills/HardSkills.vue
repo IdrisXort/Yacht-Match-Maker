@@ -35,13 +35,14 @@ export default {
   },
   props: ["label"],
   methods: {
-    getHobby(event) {
+    getSkill(event) {
       if (event.target.checked) {
         this.skills.push(event.target.value);
       } else {
         this.skills = this.skills.filter(a => a != event.target.value);
       }
       EventBus.$emit("skillChanged", this.skills);
+      console.log(this.skills, 'skillll');
     }
   }
 };
