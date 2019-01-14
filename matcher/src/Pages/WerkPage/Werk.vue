@@ -1,14 +1,16 @@
 <template>
     <div>
-        dit is werk paginaa
+        <Slider></Slider>
         <Map/>
     </div>
 </template>
 <script>
 import Map from "../../Components/Map/Map";
+import Slider from "../../Components/Slider/Slider"
 export default {
     components: {
-    Map: Map
+    Map: Map,
+    Slider: Slider,
     },
     data(){
         return{}
