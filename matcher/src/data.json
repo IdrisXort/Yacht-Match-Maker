@@ -50,5 +50,6 @@
       "option1": "Creatief",
       "option2": "Gedisciplineerd"
     }
-  ]
+  ],
+  "hobies": ["sporten", "muziek", "fotograferen", "koken", "tekenen", "lezen"]
 }
