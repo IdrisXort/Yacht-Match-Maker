@@ -66,5 +66,17 @@
     "fas fa-utensils",
     "fas fa-paint-brush",
     "fas fa-book"
+  ],
+  "skills":[
+    "C++",
+    "HTML",
+    "CSS",
+    "Sitecore",
+    "Java",
+    "Javascript",
+    "C#",
+    "PHP",
+    "SQL",
+    "Python"
   ]
 }

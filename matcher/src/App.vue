@@ -13,7 +13,7 @@
     <IntroductionPage v-show="currentPage==0"/>
     <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
     <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
-    <werk v-show="currentPage==3"/>
+    <werk v-show="currentPage==3" :skills="skills"/>
     <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
     <previous-button text="previous" v-if="currentPage>1" :onClick="goToPreviousPage"/>
     <next-button text="next" v-show="currentPage>0" :onClick="goToNextPage"/>
@@ -55,6 +55,7 @@ export default {
       hobbies: data.hobbies,
       icons:data.hobbyIcons,
       dataToCompare: dataToCompare,
+      skills: data.skills,
       person: {
         unProcessedData: {
           name: "",
@@ -63,7 +64,8 @@ export default {
           info: ""
         },
         processiveData: {
-          softSkills: []
+          softSkills: [],
+          hardSkills: []
         }
       },
       result: []
@@ -84,6 +86,9 @@ export default {
         });
         EventBus.$on("SelfInfoChanged", info => {
           this.person.unProcessedData.info = info;
+        });
+        EventBus.$on("hardSkillsChanged", hardSkills => {
+          this.person.processiveData.hardSkills = hardSkills;
         });
         EventBus.$on("SoftSkillsDone", softSkills => {
           console.log(softSkills);
