@@ -56,6 +56,12 @@ export default {
     transition: 0.3s;
   }
 
+  .button__dropdown {
+    background-color: white;
+    color: #192a56;
+    border: 1px solid #192a56;
+  }
+
   .icon__right {
     font-size: 14px;
     margin-left: .5em;
