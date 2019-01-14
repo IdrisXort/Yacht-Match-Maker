@@ -10,7 +10,7 @@
     <br>
     <image-input-field label='Upload je foto, zodat wij een profiel voor je kunnen aanmaken.'/>
     <br>
-    <hobbies label='Wat zijn je hobby’s? (meerdere keuzes mogelijk)'/>
+    <hobbies label='Wat zijn je hobby’s?'/>
     <br>
   </div>
 </template>
