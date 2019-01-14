@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <Label>{{label}}</Label>
@@ -21,7 +20,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import Hobby from "../Hobby/Hobby";
 import { EventBus } from "../../Event-bus";
@@ -47,7 +45,6 @@ export default {
   }
 };
 </script>
-
 <style>
 .no-padding-left {
   padding-left: 0px;

@@ -11,13 +11,13 @@
       />
     </div>
     <IntroductionPage v-show="currentPage==0"/>
-    <wie-ben-ik v-show="currentPage==1" :hobies="hobies"/>
+    <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
     <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
     <werk v-show="currentPage==3"/>
     <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
-    <previous-button text="previous" v-show="currentPage>1" :onClick="goToPreviousPage"/>
+    <previous-button text="previous" v-if="currentPage>1" :onClick="goToPreviousPage"/>
     <next-button text="next" v-show="currentPage>0" :onClick="goToNextPage"/>
-    <match-button v-show="currentPage==4" text="match"  :onClick="Match" />
+    <match-button v-show="currentPage==4" text="match" :onClick="Match"/>
   </div>
 </template>
 
@@ -44,7 +44,7 @@ export default {
     Logo: Logo,
     BreadCrumb: BreadCrumb,
     LeerStijlePage: LeerStijlePage,
-    matchButton:Button
+    matchButton: Button
   },
   name: "app",
   data() {
@@ -52,13 +52,14 @@ export default {
       currentPage: 0,
       pageNumbers: [1, 2, 3, 4, 5],
       questions: data.questions,
-      hobies: data.hobies,
+      hobbies: data.hobbies,
+      icons:data.hobbyIcons,
       dataToCompare: dataToCompare,
       person: {
         unProcessedData: {
           name: "",
           image: null,
-          hobies: [],
+          hobbies: [],
           info: ""
         },
         processiveData: {
@@ -78,8 +79,8 @@ export default {
         EventBus.$on("imageTaken", image => {
           this.person.unProcessedData.image = image;
         });
-        EventBus.$on("hobyChanged", hobies => {
-          this.person.unProcessedData.hobies = hobies;
+        EventBus.$on("hobbyChanged", hobbies => {
+          this.person.unProcessedData.hobbies = hobbies;
         });
         EventBus.$on("SelfInfoChanged", info => {
           this.person.unProcessedData.info = info;
@@ -110,7 +111,7 @@ export default {
             }
           });
         });
-        this.result.push({ companyName: company.CompanyName, matches: match })
+        this.result.push({ companyName: company.CompanyName, matches: match });
         match = 0;
       });
     }
