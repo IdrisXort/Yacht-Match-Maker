@@ -10,7 +10,7 @@
     <br>
     <image-input-field label='Upload je foto, zodat wij een profiel voor je kunnen aanmaken.'/>
     <br>
-    <Hobbies :hobbies="hobbies" label='Wat zijn je hobby’s? (meerdere keuzes mogelijk)'/>
+    <Hobbies :hobbies="hobbies" :icons="icons" label='Wat zijn je hobby’s? (meerdere keuzes mogelijk)'/>
     <br>
   </div>
 </template>
@@ -27,6 +27,6 @@ export default {
   data() {
     return {};
   },
-  props:['hobbies']
+  props:['hobbies', 'icons']
 };
 </script>

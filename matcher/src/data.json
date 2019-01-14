@@ -51,5 +51,20 @@
       "option2": "Gedisciplineerd"
     }
   ],
-  "hobbies": ["sporten", "muziek", "fotograferen", "koken", "tekenen", "lezen"]
+  "hobbies": [
+    "Sporten",
+    "Muziek",
+    "Fotograferen",
+    "Koken",
+    "Tekenen",
+    "Lezen"
+  ],
+  "hobbyIcons": [
+    "fas fa-running",
+    "fas fa-music",
+    "fas fa-camera-retro",
+    "fas fa-utensils",
+    "fas fa-paint-brush",
+    "fas fa-book"
+  ]
 }
