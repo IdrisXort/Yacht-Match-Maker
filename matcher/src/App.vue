@@ -16,8 +16,8 @@
     <werk v-show="currentPage==3" :skills="skills"/>
     <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
     <previous-button text="previous" v-if="currentPage>1" :onClick="goToPreviousPage"/>
-    <next-button text="next" v-show="currentPage>0" :onClick="goToNextPage"/>
-    <match-button v-show="currentPage==4" text="match" :onClick="Match"/>
+    <next-button :text="currentPage==4?'Match':'next'" v-show="currentPage>0" :onClick='goToNextPage'/>
+  
   </div>
 </template>
 
@@ -53,7 +53,7 @@ export default {
       pageNumbers: [1, 2, 3, 4, 5],
       questions: data.questions,
       hobbies: data.hobbies,
-      icons:data.hobbyIcons,
+      icons: data.hobbyIcons,
       dataToCompare: dataToCompare,
       skills: data.skills,
       person: {
@@ -89,14 +89,23 @@ export default {
         });
         EventBus.$on("hardSkillsChanged", hardSkills => {
           this.person.processiveData.hardSkills = hardSkills;
+          
         });
         EventBus.$on("SoftSkillsDone", softSkills => {
           console.log(softSkills);
 
           this.person.processiveData.softSkills = softSkills;
+          
         });
+        if(this.person.processiveData.hardSkills.length>0 && this.person.processiveData.softSkills){
+          this.Match();
+        }
       }
     },
+    emitMethods(){
+      
+    }
+    ,
     goToPreviousPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
@@ -106,18 +115,31 @@ export default {
       this.currentPage = index;
     },
     Match() {
-      let match = 0;
+      let softSkillMatch = 0;
+      let hardSkillMatch = 0;
+      let personHardSkills = this.person.processiveData.hardSkills;
       let personSoftSkills = this.person.processiveData.softSkills;
       this.dataToCompare.forEach(company => {
-        company.SoftSkills.forEach(companySkill => {
-          personSoftSkills.forEach(personSkill => {
-            if (companySkill == personSkill) {
-              match++;
+        company.SoftSkills.forEach(companySoftSkill => {
+          personSoftSkills.forEach(personSoftSkill => {
+            if (companySoftSkill == personSoftSkill) {
+              softSkillMatch++;
             }
           });
         });
-        this.result.push({ companyName: company.CompanyName, matches: match });
-        match = 0;
+        company.HardSkills.forEach(companyHardSkill => {
+          personHardSkills.forEach(personHardSkill => {
+            if (companyHardSkill == personHardSkill) {
+              hardSkillMatch++;
+            }
+          });
+        });
+        this.result.push({
+          companyName: company.CompanyName,
+          totalMatch:softSkillMatch+hardSkillMatch
+        });
+        softSkillMatch = 0;
+        hardSkillMatch = 0;
       });
     }
   }
