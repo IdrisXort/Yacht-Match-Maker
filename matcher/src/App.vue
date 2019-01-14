@@ -11,7 +11,7 @@
       />
     </div>
     <IntroductionPage v-show="currentPage==0"/>
-    <wie-ben-ik v-show="currentPage==1" :hobies="hobies"/>
+    <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies"/>
     <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
     <werk v-show="currentPage==3"/>
     <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
@@ -49,12 +49,12 @@ export default {
       currentPage: 0,
       pageNumbers: [1, 2, 3, 4, 5],
       questions: data.questions,
-      hobies:data.hobies,
+      hobbies:data.hobbies,
       person: {
         unProcessedData: {
           name: "",
           image: null,
-          hobies: [],
+          hobbies: [],
           info: ""
         },
         processiveData: {
@@ -73,8 +73,8 @@ export default {
         EventBus.$on("imageTaken", image => {
           this.person.unProcessedData.image = image;
         });
-        EventBus.$on("hobyChanged", hobies => {
-          this.person.unProcessedData.hobies = hobies;
+        EventBus.$on("hobbyChanged", hobbies => {
+          this.person.unProcessedData.hobbies = hobbies;
         });
         EventBus.$on("SelfInfoChanged", info => {
           this.person.unProcessedData.info = info;

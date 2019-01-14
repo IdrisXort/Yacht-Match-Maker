@@ -3,9 +3,9 @@
   <div>
     <Label>{{label}}</Label>
     <ul>
-      <Hoby v-for="(hoby,index) in hobies" 
+      <Hobby v-for="(hobby,index) in hobbies" 
       :key="index" 
-      :hoby="hoby"
+      :hobby="hobby"
       :getHobby="getHobby" 
       />
     </ul>
@@ -13,26 +13,26 @@
 </template>
 
 <script>
-import Hoby from "../Hoby/Hoby";
+import Hobby from "../Hobby/Hobby";
 import { EventBus } from "../../Event-bus";
 export default {
   data() {
     return {
-      filledHobies:[]
+      filledHobbies:[]
     };
   },
   components: {
-    Hoby: Hoby
+    Hobby: Hobby
   },
-  props: ["label", "hobies"],
+  props: ["label", "hobbies"],
   methods: {
     getHobby(event) {
       if (event.target.checked) {
-        this.filledHobies.push(event.target.value);
+        this.filledHobbies.push(event.target.value);
       } else {
-        this.filledHobies = this.filledHobies.filter(a => a != event.target.value);
+        this.filledHobbies = this.filledHobbies.filter(a => a != event.target.value);
       }
-      EventBus.$emit("hobyChanged", this.filledHobies);
+      EventBus.$emit("hobbyChanged", this.filledHobbies);
     }
   }
 };
