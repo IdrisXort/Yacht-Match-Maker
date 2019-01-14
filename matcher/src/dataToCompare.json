@@ -1,0 +1,251 @@
+[{
+  "CompanyName": "Eneco",
+  "Sector": "Power & Utilities",
+  "Location": "Rotterdam",
+  "Capacity": "> 250",
+  "HardSkills": ["C++", "HTML", "CSS", "Javascript", "C#"],
+  "SoftSkills": [
+    "Praktisch",
+    "Serieus",
+    "Veelzijdig",
+    "Digitaal",
+    "Samenwerken"
+  ]
+},
+{
+  "CompanyName": "Co&Co",
+  "Sector": "Media & Entertainment",
+  "Location": "Rotterdam",
+  "Capacity": "< 50",
+  "HardSkills": ["C++", "HTML", "CSS", "Javascript", "C#"],
+  "SoftSkills": [
+    "Praktisch",
+    "Serieus",
+    "Veelzijdig",
+    "Digitaal",
+    "Samenwerken"
+  ]
+},
+{
+  "CompanyName": "Siemens",
+  "Sector": "Technology",
+  "Location": "Zoetermeer",
+  "Capacity": "50 - 150",
+  "HardSkills": ["C++", "HTML", "CSS", "Javascript", "C#"],
+  "SoftSkills": [
+    "Praktisch",
+    "Serieus",
+    "Veelzijdig",
+    "Digitaal",
+    "Samenwerken"
+  ]
+},
+{
+  "CompanyName": "Friesland Campina",
+  "Sector": "Consumer products & Retail",
+  "Location": "Heerenveen",
+  "Capacity": "> 250",
+  "HardSkills": ["C++", "HTML", "CSS", "Javascript", "C#"],
+  "SoftSkills": [
+    "Praktisch",
+    "Serieus",
+    "Veelzijdig",
+    "Digitaal",
+    "Samenwerken"
+  ]
+},
+{
+  "CompanyName": "ASML",
+  "Sector": "Technology",
+  "Location": "Eindhoven",
+  "Capacity": "> 250",
+  "HardSkills": ["C++", "HTML", "CSS", "Javascript", "C#"],
+  "SoftSkills": [
+    "Praktisch",
+    "Serieus",
+    "Veelzijdig",
+    "Digitaal",
+    "Samenwerken"
+  ]
+},
+{
+  "CompanyName": "Vodafone/Ziggo",
+  "Sector": "Telecommunications",
+  "Location": "Utrecht",
+  "Capacity": "50 - 150",
+  "HardSkills": ["C++", "HTML", "CSS", "Javascript", "C#"],
+  "SoftSkills": [
+    "Theoretisch",
+    "Speels",
+    "Gespecialiseerd",
+    "Analoog",
+    "Individualistisch"
+  ]
+},
+{
+  "CompanyName": "Tata Steel",
+  "Sector": "Mining & Metals",
+  "Location": "Amsterdam",
+  "Capacity": "> 250",
+  "HardSkills": ["C++", "HTML", "CSS", "Javascript", "C#"],
+  "SoftSkills": [
+    "Theoretisch",
+    "Speels",
+    "Gespecialiseerd",
+    "Analoog",
+    "Individualistisch"
+  ]
+},
+{
+  "CompanyName": "TNO",
+  "Sector": "Life Sciences",
+  "Location": "Utrecht",
+  "Capacity": "50 - 150",
+  "HardSkills": ["C++", "HTML", "CSS", "Javascript", "C#"],
+  "SoftSkills": [
+    "Theoretisch",
+    "Speels",
+    "Gespecialiseerd",
+    "Analoog",
+    "Individualistisch"
+  ]
+},
+{
+  "CompanyName": "BMW",
+  "Sector": "Automotive & Transportation",
+  "Location": "Rijswijk",
+  "Capacity": "50 - 150",
+  "HardSkills": ["C++", "HTML", "CSS", "Javascript", "C#"],
+  "SoftSkills": [
+    "Theoretisch",
+    "Speels",
+    "Gespecialiseerd",
+    "Analoog",
+    "Individualistisch"
+  ]
+},
+{
+  "CompanyName": "Shell",
+  "Sector": "Oil & Gas",
+  "Location": "Den Haag",
+  "Capacity": "> 250",
+  "HardSkills": ["C++", "HTML", "CSS", "Javascript", "C#"],
+  "SoftSkills": [
+    "Theoretisch",
+    "Speels",
+    "Gespecialiseerd",
+    "Analoog",
+    "Individualistisch"
+  ]
+},
+{
+  "CompanyName": "Rabobank",
+  "Sector": "Financial Services",
+  "Location": "Utrecht",
+  "Capacity": "50 - 150",
+  "HardSkills": ["PHP", "SQL", "Phyton", "Java", "Sitecore"],
+  "SoftSkills": ["Flexibel", "Onderdanig", "Dialoog", "Druk", "Creatief"]
+},
+{
+  "CompanyName": "KLM",
+  "Sector": "Technology",
+  "Location": "Amsterdam",
+  "Capacity": "50 - 150",
+  "HardSkills": ["PHP", "SQL", "Phyton", "Java", "Sitecore"],
+  "SoftSkills": ["Flexibel", "Onderdanig", "Dialoog", "Druk", "Creatief"]
+},
+{
+  "CompanyName": "Nike",
+  "Sector": "Consumer products & Retail",
+  "Location": "Amsterdam",
+  "Capacity": "50 - 150",
+  "HardSkills": ["PHP", "SQL", "Phyton", "Java", "Sitecore"],
+  "SoftSkills": ["Flexibel", "Onderdanig", "Dialoog", "Druk", "Creatief"]
+},
+{
+  "CompanyName": "BK Cockware",
+  "Sector": "Consumer products & Retail",
+  "Location": "Delft",
+  "Capacity": "< 50",
+  "HardSkills": ["PHP", "SQL", "Phyton", "Java", "Sitecore"],
+  "SoftSkills": ["Flexibel", "Onderdanig", "Dialoog", "Druk", "Creatief"]
+},
+{
+  "CompanyName": "Bax music",
+  "Sector": "Media & Entertainment",
+  "Location": "Rotterdam",
+  "Capacity": "< 50",
+  "HardSkills": ["PHP", "SQL", "Phyton", "Java", "Sitecore"],
+  "SoftSkills": ["Flexibel", "Onderdanig", "Dialoog", "Druk", "Creatief"]
+},
+{
+  "CompanyName": "Koninklijke bibliotheek",
+  "Sector": "Government & Public Sector",
+  "Location": "Den Haag",
+  "Capacity": "< 50",
+  "HardSkills": ["PHP", "SQL", "Phyton", "Java", "Sitecore"],
+  "SoftSkills": [
+    "Standvastig",
+    "Bazig",
+    "Monoloog",
+    "Rustig",
+    "Gedisciplineerd"
+  ]
+},
+{
+  "CompanyName": "Gemeente Amsterdam",
+  "Sector": "Government & Public Sector",
+  "Location": "Amsterdam",
+  "Capacity": "50 - 150",
+  "HardSkills": ["PHP", "SQL", "Phyton", "Java", "Sitecore"],
+  "SoftSkills": [
+    "Standvastig",
+    "Bazig",
+    "Monoloog",
+    "Rustig",
+    "Gedisciplineerd"
+  ]
+},
+{
+  "CompanyName": "Sunweb",
+  "Sector": "Consumer products & Retail",
+  "Location": "Rotterdam",
+  "Capacity": "< 50",
+  "HardSkills": ["PHP", "SQL", "Phyton", "Java", "Sitecore"],
+  "SoftSkills": [
+    "Standvastig",
+    "Bazig",
+    "Monoloog",
+    "Rustig",
+    "Gedisciplineerd"
+  ]
+},
+{
+  "CompanyName": "CBRE",
+  "Sector": "Real Estate, Hospitality & Construction",
+  "Location": "Rotterdam",
+  "Capacity": "50 - 150",
+  "HardSkills": ["PHP", "SQL", "Phyton", "Java", "Sitecore"],
+  "SoftSkills": [
+    "Standvastig",
+    "Bazig",
+    "Monoloog",
+    "Rustig",
+    "Gedisciplineerd"
+  ]
+},
+{
+  "CompanyName": "Wilhelmina Kinderziekenhuis",
+  "Sector": "Health",
+  "Location": "Utrecht",
+  "Capacity": "50 - 150",
+  "HardSkills": ["PHP", "SQL", "Phyton", "Java", "Sitecore"],
+  "SoftSkills": [
+    "Standvastig",
+    "Bazig",
+    "Monoloog",
+    "Rustig",
+    "Gedisciplineerd"
+  ]
+}
+]
