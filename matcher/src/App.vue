@@ -15,8 +15,9 @@
     <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
     <werk v-show="currentPage==3"/>
     <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
-    <previous-button text="previous" v-if="currentPage>1" :onClick="goToPreviousPage"/>
+    <previous-button text="previous" v-show="currentPage>1" :onClick="goToPreviousPage"/>
     <next-button text="next" v-show="currentPage>0" :onClick="goToNextPage"/>
+    <match-button v-show="currentPage==4" text="match"  :onClick="Match" />
   </div>
 </template>
 
@@ -30,6 +31,7 @@ import Logo from "./Components/Logo/Logo";
 import BreadCrumb from "./Components/BreadCrumbs/BreadCrumb";
 import data from "./data.json";
 import LeerStijlePage from "./Pages/LeerStijlPage/LeerStijlPage";
+import dataToCompare from "./dataToCompare";
 
 export default {
   components: {
@@ -41,7 +43,8 @@ export default {
     startButton: Button,
     Logo: Logo,
     BreadCrumb: BreadCrumb,
-    LeerStijlePage: LeerStijlePage
+    LeerStijlePage: LeerStijlePage,
+    matchButton:Button
   },
   name: "app",
   data() {
@@ -49,7 +52,8 @@ export default {
       currentPage: 0,
       pageNumbers: [1, 2, 3, 4, 5],
       questions: data.questions,
-      hobies:data.hobies,
+      hobies: data.hobies,
+      dataToCompare: dataToCompare,
       person: {
         unProcessedData: {
           name: "",
@@ -60,7 +64,8 @@ export default {
         processiveData: {
           softSkills: []
         }
-      }
+      },
+      result: []
     };
   },
   methods: {
@@ -81,7 +86,7 @@ export default {
         });
         EventBus.$on("SoftSkillsDone", softSkills => {
           console.log(softSkills);
-          
+
           this.person.processiveData.softSkills = softSkills;
         });
       }
@@ -93,6 +98,21 @@ export default {
     },
     goToPageNumber(index) {
       this.currentPage = index;
+    },
+    Match() {
+      let match = 0;
+      let personSoftSkills = this.person.processiveData.softSkills;
+      this.dataToCompare.forEach(company => {
+        company.SoftSkills.forEach(companySkill => {
+          personSoftSkills.forEach(personSkill => {
+            if (companySkill == personSkill) {
+              match++;
+            }
+          });
+        });
+        this.result.push({ companyName: company.CompanyName, matches: match })
+        match = 0;
+      });
     }
   }
 };
