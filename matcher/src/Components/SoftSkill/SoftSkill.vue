@@ -1,9 +1,10 @@
 <template>
-  <li>
-    <Label>{{question}}</Label>
-    <input type="radio" v-model="selectedOption" @click="getSkill" :value="option1">
-    <input type="radio" v-model="selectedOption" @click="getSkill" :value="option2">
-  </li>
+  <tr>
+    <th scope="col" >{{index}}.</th>
+    <td><Label class="label">{{question}}</Label></td>
+    <td><input class="input__radio" type="radio" v-model="selectedOption" @click="getSkill" :value="option1"></td>
+    <td><input class="input__radio" type="radio" v-model="selectedOption" @click="getSkill" :value="option2"></td>
+  </tr>
 </template>
 
 <script>
@@ -27,5 +28,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+  .input__radio {
+    min-width: 100px;
+  }
+  .label{
+    font-size: 16px;
+  }
 </style>

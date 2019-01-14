@@ -12,3 +12,7 @@ label {
     color: #0f1941;
     font-weight: 600;
 }
+
+.table td, .table th {
+    padding: .50rem;
+  }
