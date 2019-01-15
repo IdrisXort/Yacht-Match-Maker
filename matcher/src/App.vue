@@ -8,16 +8,21 @@
         :pageNumber="pageNumber"
         :isActive="pageNumber==currentPage"
         @click.native="goToPageNumber(pageNumber)"
+        v-show="currentPage<4"
       />
     </div>
     <IntroductionPage v-show="currentPage==0"/>
     <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
     <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
-    <werk v-show="currentPage==3"/>
+    <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
+    <result-page v-show="currentPage==4" :results="[...results]"/>
     <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
-    <previous-button text="previous" v-if="currentPage>1" :onClick="goToPreviousPage"/>
-    <next-button text="next" v-show="currentPage>0" :onClick="goToNextPage"/>
-    <match-button v-show="currentPage==4" text="match" :onClick="Match"/>
+    <previous-button text="previous" v-if="currentPage>1 && currentPage<4" :onClick="goToPreviousPage"/>
+    <next-button
+      :text="currentPage==3?'Match':'next'"
+      v-show="currentPage>0 && currentPage<5"
+      :onClick="goToNextPage"
+    />
   </div>
 </template>
 
@@ -32,6 +37,7 @@ import BreadCrumb from "./Components/BreadCrumbs/BreadCrumb";
 import data from "./data.json";
 import LeerStijlePage from "./Pages/LeerStijlPage/LeerStijlPage";
 import dataToCompare from "./dataToCompare";
+import ResultPage from "./Pages/ResultPage/ResultPage";
 
 export default {
   components: {
@@ -44,7 +50,8 @@ export default {
     Logo: Logo,
     BreadCrumb: BreadCrumb,
     LeerStijlePage: LeerStijlePage,
-    matchButton: Button
+    matchButton: Button,
+    ResultPage: ResultPage
   },
   name: "app",
   data() {
@@ -53,8 +60,11 @@ export default {
       pageNumbers: [1, 2, 3, 4, 5],
       questions: data.questions,
       hobbies: data.hobbies,
-      icons:data.hobbyIcons,
+      icons: data.hobbyIcons,
       dataToCompare: dataToCompare,
+      skills: data.skills,
+      locations: data.locations,
+      results: [],
       person: {
         unProcessedData: {
           name: "",
@@ -63,10 +73,11 @@ export default {
           info: ""
         },
         processiveData: {
-          softSkills: []
+          softSkills: [],
+          hardSkills: [],
+          location: ""
         }
-      },
-      result: []
+      }
     };
   },
   methods: {
@@ -75,6 +86,9 @@ export default {
         this.currentPage++;
         EventBus.$on("nameChanged", name => {
           this.person.unProcessedData.name = name;
+        });
+        EventBus.$on("ChooseLocation", location => {
+          this.person.processiveData.location = location;
         });
         EventBus.$on("imageTaken", image => {
           this.person.unProcessedData.image = image;
@@ -85,13 +99,21 @@ export default {
         EventBus.$on("SelfInfoChanged", info => {
           this.person.unProcessedData.info = info;
         });
+        EventBus.$on("hardSkillsChanged", hardSkills => {
+          this.person.processiveData.hardSkills = hardSkills;
+        });
         EventBus.$on("SoftSkillsDone", softSkills => {
-          console.log(softSkills);
-
           this.person.processiveData.softSkills = softSkills;
         });
+        if (
+          this.person.processiveData.hardSkills.length > 0 &&
+          this.person.processiveData.softSkills.length==10 && this.person.processiveData.location!=''
+        ) {
+          this.Match();
+        }
       }
     },
+    emitMethods() {},
     goToPreviousPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
@@ -100,19 +122,38 @@ export default {
     goToPageNumber(index) {
       this.currentPage = index;
     },
-    Match() {
-      let match = 0;
+    Match:function() {
+      let softSkillMatch = 0;
+      let hardSkillMatch = 0;
+      let locationMatch = 0;
+      let personHardSkills = this.person.processiveData.hardSkills;
       let personSoftSkills = this.person.processiveData.softSkills;
-      this.dataToCompare.forEach(company => {
-        company.SoftSkills.forEach(companySkill => {
-          personSoftSkills.forEach(personSkill => {
-            if (companySkill == personSkill) {
-              match++;
+      this.dataToCompare.forEach((company, index) => {
+        company.SoftSkills.forEach(companySoftSkill => {
+          personSoftSkills.forEach(personSoftSkill => {
+            if (companySoftSkill == personSoftSkill) {
+              softSkillMatch++;
             }
           });
         });
-        this.result.push({ companyName: company.CompanyName, matches: match });
-        match = 0;
+        company.HardSkills.forEach(companyHardSkill => {
+          personHardSkills.forEach(personHardSkill => {
+            if (companyHardSkill == personHardSkill) {
+              hardSkillMatch++;
+            }
+          });
+        });
+        if (this.person.processiveData.location == company.Location){
+
+          locationMatch++;
+        }
+        this.results[index] = {
+          companyName: company.CompanyName,
+          totalMatch: softSkillMatch + hardSkillMatch + locationMatch
+        };
+        softSkillMatch = 0;
+        hardSkillMatch = 0;
+        locationMatch = 0;
       });
     }
   }

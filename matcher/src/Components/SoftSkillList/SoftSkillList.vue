@@ -1,15 +1,25 @@
 <template>
-  <ul>
-    <soft-skill
-      v-for="(question,index) in questions"
-      :key="index"
-      :question="question.question"
-      :option1="question.option1"
-      :option2="question.option2"
-      :index="index"
-      :getOption="getOption"
-    />
-  </ul>
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col">Eens</th>
+        <th scope="col">Oneens</th>
+      </tr>
+    </thead>
+    <tbody>
+      <soft-skill
+        v-for="(question,index) in questions"
+        :key="index"
+        :question="question.question"
+        :option1="question.option1"
+        :option2="question.option2"
+        :index="index"
+        :getOption="getOption"
+      />
+    </tbody>
+  </table>
 </template>
 
 <script>
@@ -40,5 +50,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+th {
+  text-align:center;
+}
 </style>

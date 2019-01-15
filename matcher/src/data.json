@@ -6,59 +6,52 @@
       "option2": "Theoretisch"
     },
     {
-      "question": " Flexibility Vraag",
+      "question": "Ik vind het prettig om in een omgeving te werken waar situaties snel veranderen",
       "option1": "Flexibel",
       "option2": "Standvastig"
     },
     {
-      "question": " Serieus Vraag",
+      "question": "Op mijn werk ben ik alleen met werk bezig en wijk ik daar niet vanaf",
       "option1": "Serieus",
       "option2": "Speels"
     },
     {
-      "question": " Onderdanig Vraag",
+      "question": "Bij nieuwe projecten blijf ik altijd eerst een beetje op de achtergrond ",
       "option1": "Onderdanig",
       "option2": "Bazig"
     },
     {
-      "question": " Veelzijdig Vraag",
+      "question": "Ik ben graag met veel verschillende werkzaamheden tegelijk bezig",
       "option1": "Veelzijdig",
       "option2": "Gespecialiseerd"
     },
     {
-      "question": " Dialoog Vraag",
+      "question": "Ik vind het prettig als mensen naar mij luisteren en geen vragen stellen",
       "option1": "Dialoog",
       "option2": "Monoloog"
     },
     {
-      "question": " Digitaal Vraag",
+      "question": "Ik vind het prettig om alles (lekker ouderwets) op papier bij te houden ",
       "option1": "Digitaal",
       "option2": "Analog"
     },
     {
-      "question": " Druk Vraag",
+      "question": "Ik kan makkelijk 2uur lang achter elkaar stil zitten",
       "option1": "Druk",
       "option2": "Rustig"
     },
     {
-      "question": " Samenwerken Vraag",
+      "question": "Binnen het team hecht ik waarde aan ieder zijn mening",
       "option1": "Samenwerken",
       "option2": "Individualistisch"
     },
     {
-      "question": " Creatief Vraag",
+      "question": "Ik verzin dagelijks nieuwe ideeen om mijn werk makkelijker te maken ",
       "option1": "Creatief",
       "option2": "Gedisciplineerd"
     }
   ],
-  "hobbies": [
-    "Sporten",
-    "Muziek",
-    "Fotograferen",
-    "Koken",
-    "Tekenen",
-    "Lezen"
-  ],
+  "hobbies": ["Sporten", "Muziek", "Fotograferen", "Koken", "Tekenen", "Lezen"],
   "hobbyIcons": [
     "fas fa-running",
     "fas fa-music",
@@ -66,5 +59,28 @@
     "fas fa-utensils",
     "fas fa-paint-brush",
     "fas fa-book"
+  ],
+  "skills": [
+    "C++",
+    "HTML",
+    "CSS",
+    "Sitecore",
+    "Java",
+    "Javascript",
+    "C#",
+    "PHP",
+    "SQL",
+    "Python"
+  ],
+  "locations": [
+    "Amersfoort",
+    "Amsterdam",
+    "Eindhoven",
+    "Groningen",
+    "Rotterdam",
+    "Maastricht",
+    "Utrecht",
+    "Zwolle",
+    "Den Haag"
   ]
 }

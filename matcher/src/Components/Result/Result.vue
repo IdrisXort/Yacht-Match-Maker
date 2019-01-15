@@ -1,0 +1,24 @@
+<template>
+  <!-- <div>
+    <h2>{{companyName}}</h2>
+
+    <h2>{{Math.round(parseInt(matchPercentage)/11*100)+'%'}}</h2>
+  </div> -->
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>{{companyName}}</h2>
+      </div>
+      <div class="col-sm-6">
+        <h2>{{Math.round(parseInt(matchPercentage)/11*100)+'%'}}</h2>
+      </div>
+    </div>
+</template>
+
+<script>
+export default {
+  props: ["companyName", "matchPercentage"]
+};
+</script>
+
+<style>
+</style>
