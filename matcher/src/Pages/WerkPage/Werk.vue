@@ -1,6 +1,5 @@
 <template>
     <div>
-        dit is werk paginaa
         <Slider></Slider>
         <Map :locations="locations" label="In welke regio's zou je het liefst willen werken?"/>
         <hard-skills :skills="skills" label="Kies je Hard Skills" />
