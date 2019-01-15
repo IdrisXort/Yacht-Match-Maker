@@ -13,11 +13,14 @@
     <IntroductionPage v-show="currentPage==0"/>
     <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
     <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
-    <werk v-show="currentPage==3" :skills="skills"/>
+    <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
     <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
     <previous-button text="previous" v-if="currentPage>1" :onClick="goToPreviousPage"/>
-    <next-button :text="currentPage==4?'Match':'next'" v-show="currentPage>0" :onClick='goToNextPage'/>
-  
+    <next-button
+      :text="currentPage==4?'Match':'next'"
+      v-show="currentPage>0"
+      :onClick="goToNextPage"
+    />
   </div>
 </template>
 
@@ -56,6 +59,7 @@ export default {
       icons: data.hobbyIcons,
       dataToCompare: dataToCompare,
       skills: data.skills,
+      locations: data.locations,
       person: {
         unProcessedData: {
           name: "",
@@ -65,7 +69,8 @@ export default {
         },
         processiveData: {
           softSkills: [],
-          hardSkills: []
+          hardSkills: [],
+          location:''
         }
       },
       result: []
@@ -78,6 +83,9 @@ export default {
         EventBus.$on("nameChanged", name => {
           this.person.unProcessedData.name = name;
         });
+        EventBus.$on("ChooseLocation", location => {
+          this.person.processiveData.location= location;
+        });
         EventBus.$on("imageTaken", image => {
           this.person.unProcessedData.image = image;
         });
@@ -89,23 +97,21 @@ export default {
         });
         EventBus.$on("hardSkillsChanged", hardSkills => {
           this.person.processiveData.hardSkills = hardSkills;
-          
         });
         EventBus.$on("SoftSkillsDone", softSkills => {
           console.log(softSkills);
 
           this.person.processiveData.softSkills = softSkills;
-          
         });
-        if(this.person.processiveData.hardSkills.length>0 && this.person.processiveData.softSkills){
+        if (
+          this.person.processiveData.hardSkills.length > 0 &&
+          this.person.processiveData.softSkills
+        ) {
           this.Match();
         }
       }
     },
-    emitMethods(){
-      
-    }
-    ,
+    emitMethods() {},
     goToPreviousPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
@@ -136,7 +142,7 @@ export default {
         });
         this.result.push({
           companyName: company.CompanyName,
-          totalMatch:softSkillMatch+hardSkillMatch
+          totalMatch: softSkillMatch + hardSkillMatch
         });
         softSkillMatch = 0;
         hardSkillMatch = 0;

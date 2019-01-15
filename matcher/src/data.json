@@ -51,14 +51,7 @@
       "option2": "Gedisciplineerd"
     }
   ],
-  "hobbies": [
-    "Sporten",
-    "Muziek",
-    "Fotograferen",
-    "Koken",
-    "Tekenen",
-    "Lezen"
-  ],
+  "hobbies": ["Sporten", "Muziek", "Fotograferen", "Koken", "Tekenen", "Lezen"],
   "hobbyIcons": [
     "fas fa-running",
     "fas fa-music",
@@ -67,7 +60,7 @@
     "fas fa-paint-brush",
     "fas fa-book"
   ],
-  "skills":[
+  "skills": [
     "C++",
     "HTML",
     "CSS",
@@ -78,5 +71,17 @@
     "PHP",
     "SQL",
     "Python"
+  ],
+  "locations": [
+    "Rotterdam",
+    "Amersfoort",
+    "Amsterdam",
+    "Eindhoven",
+    "Groningen",
+    "Rotterdam",
+    "Maastricht",
+    "Utrecht",
+    "Zwolle",
+    "Den Haag"
   ]
 }
