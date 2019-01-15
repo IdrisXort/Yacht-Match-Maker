@@ -4,7 +4,7 @@
       v-for="(result,index) in results.sort(function(res1,res2){return res2.totalMatch-res1.totalMatch})"
       :key="index"
       :companyName="result.companyName"
-      :matchPercentage="result.totalMatch+'%'"
+      :matchPercentage="result.totalMatch"
       />
   </div>
 </template>
