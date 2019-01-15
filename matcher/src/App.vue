@@ -70,7 +70,7 @@ export default {
         processiveData: {
           softSkills: [],
           hardSkills: [],
-          location:''
+          location: ""
         }
       },
       result: []
@@ -84,7 +84,7 @@ export default {
           this.person.unProcessedData.name = name;
         });
         EventBus.$on("ChooseLocation", location => {
-          this.person.processiveData.location= location;
+          this.person.processiveData.location = location;
         });
         EventBus.$on("imageTaken", image => {
           this.person.unProcessedData.image = image;
@@ -123,9 +123,10 @@ export default {
     Match() {
       let softSkillMatch = 0;
       let hardSkillMatch = 0;
+      let locationMatch = 0;
       let personHardSkills = this.person.processiveData.hardSkills;
       let personSoftSkills = this.person.processiveData.softSkills;
-      this.dataToCompare.forEach(company => {
+      this.dataToCompare.forEach((company, index) => {
         company.SoftSkills.forEach(companySoftSkill => {
           personSoftSkills.forEach(personSoftSkill => {
             if (companySoftSkill == personSoftSkill) {
@@ -140,12 +141,19 @@ export default {
             }
           });
         });
-        this.result.push({
+        if (this.person.processiveData.location == company.Location)
+          locationMatch++;
+        this.result[index] = {
           companyName: company.CompanyName,
-          totalMatch: softSkillMatch + hardSkillMatch
-        });
+          totalMatch: softSkillMatch + hardSkillMatch + locationMatch
+        };
+        console.log("softSkillMatch", softSkillMatch);
+        console.log("hardSkillMatch", hardSkillMatch);
+        console.log("locationMatch", locationMatch);
+
         softSkillMatch = 0;
         hardSkillMatch = 0;
+        locationMatch = 0;
       });
     }
   }
