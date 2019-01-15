@@ -38,42 +38,72 @@
           <!-- <span class="icon-klein" aria-hidden="true"></span> -->
         </div>
       </div>
-      <input type="range" name="foo" min="1" max="3" value="50" class="slider" onchange="getInfo()">
-      <p>
-        {{ rangeStatus }}
-      </p>
+      <input
+        type="range"
+        name="foo"
+        step="1"
+        min="1"
+        max="3"
+        class="slider"
+        v-model="dinge"
+        @change="getInfo()"
+      >
+      <p>{{ rangeStatus }}</p>
+      <p>{{dinge}}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data: function(){
+  data: function() {
     return {
-      rangeStatus: 'Kies een branch'
-    }
+      rangeStatus: "Kies een branch",
+      dinge: ''
+    };
   },
   methods: {
-    getInfo(value){
-      console.log(value).value;
+    getInfo() {
+      var info = this.dinge;
+      switch (info) {
+        case "1":
+          this.rangeStatus = "Klein";
+          break;
+        case "2":
+          this.rangeStatus = "Middel";
+          break;
+        case "3":
+          this.rangeStatus = "Groot";
+          break;
+        default:
+          this.rangeStatus = "Kies een branch"
+      }
+
+
+      // if (info === 1) {
+      //   this.rangeStatus = "Klein";
+      // } else if (info === 2) {
+      //   this.rangeStatus = "Middel";
+      // } else if (info == 3) {
+      //   this.rangeStatus = "Groot";
+      // }
     }
   }
 };
 </script>
 
 <style>
-
 /* @font-face {
   font-family: "matcherfont";
   /* src: url("../../assets/fonts/icomoon.eot") format('eot'); */
-  /* src: url("../../assets/fonts/icsomoon.svg") format('svg'); */
-  /* src: url("../../assets/fonts/icomoon.ttf") format('ttf'); */
-  /* src: url("../../assets/fonts/icomoon.woff") format('woff'); */
+/* src: url("../../assets/fonts/icsomoon.svg") format('svg'); */
+/* src: url("../../assets/fonts/icomoon.ttf") format('ttf'); */
+/* src: url("../../assets/fonts/icomoon.woff") format('woff'); */
 /* } */
 
 /* body {
   font-family: 'matcherfont';
-} */ 
+} */
 
 .slider {
   -webkit-appearance: none;
@@ -96,9 +126,9 @@ export default {
 }
 
 .test::before {
-    background: url("../../assets/svg/klein.svg");
-    width: 50px;
-    height: 50px;
-    color: pink;
+  background: url("../../assets/svg/klein.svg");
+  width: 50px;
+  height: 50px;
+  color: pink;
 }
 </style>
