@@ -8,17 +8,19 @@
         :pageNumber="pageNumber"
         :isActive="pageNumber==currentPage"
         @click.native="goToPageNumber(pageNumber)"
+        v-show="currentPage<4"
       />
     </div>
     <IntroductionPage v-show="currentPage==0"/>
     <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
     <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
     <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
+    <result-page v-show="currentPage==4" :results="[...results]"/>
     <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
-    <previous-button text="previous" v-if="currentPage>1" :onClick="goToPreviousPage"/>
+    <previous-button text="previous" v-if="currentPage>1 && currentPage<4" :onClick="goToPreviousPage"/>
     <next-button
-      :text="currentPage==4?'Match':'next'"
-      v-show="currentPage>0"
+      :text="currentPage==3?'Match':'next'"
+      v-show="currentPage>0 && currentPage<5"
       :onClick="goToNextPage"
     />
   </div>
@@ -35,6 +37,7 @@ import BreadCrumb from "./Components/BreadCrumbs/BreadCrumb";
 import data from "./data.json";
 import LeerStijlePage from "./Pages/LeerStijlPage/LeerStijlPage";
 import dataToCompare from "./dataToCompare";
+import ResultPage from "./Pages/ResultPage/ResultPage";
 
 export default {
   components: {
@@ -47,7 +50,8 @@ export default {
     Logo: Logo,
     BreadCrumb: BreadCrumb,
     LeerStijlePage: LeerStijlePage,
-    matchButton: Button
+    matchButton: Button,
+    ResultPage: ResultPage
   },
   name: "app",
   data() {
@@ -60,6 +64,7 @@ export default {
       dataToCompare: dataToCompare,
       skills: data.skills,
       locations: data.locations,
+      results: [],
       person: {
         unProcessedData: {
           name: "",
@@ -72,8 +77,7 @@ export default {
           hardSkills: [],
           location: ""
         }
-      },
-      result: []
+      }
     };
   },
   methods: {
@@ -99,13 +103,11 @@ export default {
           this.person.processiveData.hardSkills = hardSkills;
         });
         EventBus.$on("SoftSkillsDone", softSkills => {
-          console.log(softSkills);
-
           this.person.processiveData.softSkills = softSkills;
         });
         if (
           this.person.processiveData.hardSkills.length > 0 &&
-          this.person.processiveData.softSkills
+          this.person.processiveData.softSkills.length==10 && this.person.processiveData.location!=''
         ) {
           this.Match();
         }
@@ -120,7 +122,7 @@ export default {
     goToPageNumber(index) {
       this.currentPage = index;
     },
-    Match() {
+    Match:function() {
       let softSkillMatch = 0;
       let hardSkillMatch = 0;
       let locationMatch = 0;
@@ -141,16 +143,14 @@ export default {
             }
           });
         });
-        if (this.person.processiveData.location == company.Location)
+        if (this.person.processiveData.location == company.Location){
+
           locationMatch++;
-        this.result[index] = {
+        }
+        this.results[index] = {
           companyName: company.CompanyName,
           totalMatch: softSkillMatch + hardSkillMatch + locationMatch
         };
-        console.log("softSkillMatch", softSkillMatch);
-        console.log("hardSkillMatch", hardSkillMatch);
-        console.log("locationMatch", locationMatch);
-
         softSkillMatch = 0;
         hardSkillMatch = 0;
         locationMatch = 0;
