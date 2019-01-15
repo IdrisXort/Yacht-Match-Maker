@@ -1,7 +1,7 @@
 <template>
   <div class="container">
       <result 
-      v-for="(result,index) in results.sort(function(res1,res2){return res1.totalMatch-res2.totalMatch}).reverse()"
+      v-for="(result,index) in results.sort(function(res1,res2){return res2.totalMatch-res1.totalMatch})"
       :key="index"
       :companyName="result.companyName"
       :matchPercentage="result.totalMatch+'%'"
