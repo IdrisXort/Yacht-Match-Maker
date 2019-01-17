@@ -46,7 +46,5 @@ export default {
 };
 </script>
 <style>
-.no-padding-left {
-  padding-left: 0px;
-}
+
 </style>

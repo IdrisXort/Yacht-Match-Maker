@@ -1,47 +1,53 @@
 <template>
-  <div class="container">
-    <div class="col-sm-8">
-      <div class="row justify-content-between">
-        <div class="col-2 slider-icon-container">
-          <div class="icon-container" @click="numberRange = 50">
-            <img src="../../assets/svg/klein.svg" class="icon-company">
-            <p>
-              Klein
-              <span><50 mensen</span>
-            </p>
+  <div>
+    <label>{{label}}</label>
+    <div class="container no-padding-left">
+      <div class="col-sm-8 no-padding-left">
+        <div class="row justify-content-between">
+          <div class="col-2 slider-icon-container">
+            <div class="icon-container" @click="setRangeValueOnClick(50, 'Klein')">
+              <img src="../../assets/svg/klein.svg" class="icon-company">
+              <p>
+                Klein
+                <span><50 mensen</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-2 slider-icon-container">
+            <div class="icon-container" @click="setRangeValueOnClick(250, 'Middel')">
+              <img src="../../assets/svg/middel.svg" class="icon-company">
+              <p>
+                Middel
+                <span><250 mensen</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-2 slider-icon-container">
+            <div class="icon-container" @click="setRangeValueOnClick(450, 'Multinational')">
+              <img src="../../assets/svg/multinational.svg" class="icon-company">
+              <p>
+                Multinational
+                <span>>250 mensen</span>
+              </p>
+            </div>
           </div>
         </div>
-        <div class="col-2 slider-icon-container">
-          <div class="icon-container" @click="numberRange = 250">
-            <img src="../../assets/svg/middel.svg" class="icon-company">
-            <p>
-              Middel
-              <span><250 mensen</span>
-            </p>
-          </div>
-        </div>
-        <div class="col-2 slider-icon-container">
-          <div class="icon-container" @click="numberRange = 400">
-            <img src="../../assets/svg/multinational.svg" class="icon-company">
-            <p>
-              Multinational
-              <span>>250 mensen</span>
-            </p>
-          </div>
-        </div>
+        <input
+          type="range"
+          name="foo"
+          step="1"
+          min="1"
+          max="500"
+          class="slider"
+          v-model="numberRange"
+          @change="getRangeValue()"
+        >
+        <p>{{ statusRange }}</p>
+        <p>
+          {{numberRange}}
+          <span v-if="labelRange">mensen</span>
+        </p>
       </div>
-      <input
-        type="range"
-        name="foo"
-        step="1"
-        min="1"
-        max="500"
-        class="slider"
-        v-model="numberRange"
-        @change="getInfo()"
-      >
-      <p>{{ statusRange }}</p>
-      <p>{{numberRange}}</p>
     </div>
   </div>
 </template>
@@ -51,58 +57,40 @@ export default {
   data: function() {
     return {
       statusRange: "Kies een branch",
-      numberRange: ""
+      numberRange: "",
+      labelRange: false
     };
   },
+  props: ["label"],
   methods: {
-    getInfo() {
+    getRangeValue() {
       var info = this.numberRange;
-      // switch (info) {
-      //   case info >250:
-      //     this.statusRange = "Multinational";
-      //     break;
-      //   case info >51 || info <250:
-      //     this.statusRange = "Middel";
-      //     break;
-      //   case info <0:
-      //     this.statusRange = "Klein";
-      //     break;
-      //   default:
-      //     this.statusRange = "Kies een branch";
-      // }
+      this.labelRange = true;
       if (info > 250) {
-        return this.statusRange = "Multinational";
+        return (this.statusRange = "Multinational");
       } else if (info > 51) {
-        return this.statusRange = "Middel";
+        return (this.statusRange = "Middel");
       } else if (info > 0) {
-        return this.statusRange = "klein";
+        return (this.statusRange = "klein");
       }
+    },
+    setRangeValueOnClick(rangeValue, company) {
+      this.labelRange = true;
+      this.statusRange = company;
+      this.numberRange = rangeValue;
     }
-  },
+  }
 };
 </script>
 
 <style>
 
-/* Mijn tevergeefse pogingen om een font in the laden... */
-/* @font-face {
-  font-family: "matcherfont";
-  /* src: url("../../assets/fonts/icomoon.eot") format('eot'); */
-/* src: url("../../assets/fonts/icsomoon.svg") format('svg'); */
-/* src: url("../../assets/fonts/icomoon.ttf") format('ttf'); */
-/* src: url("../../assets/fonts/icomoon.woff") format('woff'); */
-/* } */
-
-/* body {
-  font-family: 'matcherfont';
-} */
-
 .slider {
   -webkit-appearance: none;
   width: 100%;
   background: #4e4d8b;
-  /* outline: none; */
   height: 3px;
+  transition: 3s;
 }
 
 .slider::-webkit-slider-thumb {
@@ -111,6 +99,11 @@ export default {
   height: 25px;
   background: #0f1941;
   border-radius: 3px;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background: #4e4d8b;
+  transition: 0.3s;
 }
 
 .icon-company {
@@ -139,6 +132,7 @@ export default {
 }
 
 .icon-container p {
+  margin-top: 10px;
   margin-bottom: 0px;
 }
 

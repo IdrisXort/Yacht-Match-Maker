@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Slider></Slider>
+        <Slider label="Geef aan op de schaal hoe groot het bedrijf is waar je het liefst werkt"></Slider>
         <Map :locations="locations" label="In welke regio's zou je het liefst willen werken?"/>
         <hard-skills :skills="skills" label="Kies je Hard Skills" />
     </div>
