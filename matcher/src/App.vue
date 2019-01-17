@@ -15,9 +15,10 @@
     <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
     <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
     <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
-    <result-page v-show="currentPage==4" :results="[...results]"/>
+    <match-page v-show="currentPage==4" :results="[...results]"/>
+    <result-page v-show="currentPage==5" :results="[...results]"/>
     <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
-    <previous-button text="previous" v-if="currentPage>1 && currentPage<4" :onClick="goToPreviousPage"/>
+    <previous-button text="previous" v-if="currentPage>1 && currentPage<5" :onClick="goToPreviousPage"/>
     <next-button
       :text="currentPage==3?'Match':'next'"
       v-show="currentPage>0 && currentPage<5"
@@ -38,6 +39,7 @@ import data from "./data.json";
 import LeerStijlePage from "./Pages/LeerStijlPage/LeerStijlPage";
 import dataToCompare from "./dataToCompare";
 import ResultPage from "./Pages/ResultPage/ResultPage";
+import MatchPage from "./Pages/MatchPage/MatchPage";
 
 export default {
   components: {
@@ -51,7 +53,8 @@ export default {
     BreadCrumb: BreadCrumb,
     LeerStijlePage: LeerStijlePage,
     matchButton: Button,
-    ResultPage: ResultPage
+    ResultPage: ResultPage,
+    MatchPage: MatchPage
   },
   name: "app",
   data() {
