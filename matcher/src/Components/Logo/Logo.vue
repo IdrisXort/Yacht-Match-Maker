@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="logo-container">
         <span class="logo">YACHT</span>
         <span class="sublogo">Match finder</span>
     </div>
@@ -14,6 +14,10 @@
     h1,
     h3 {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    .logo-container {
+        cursor: pointer;
     }
 
     .logo {

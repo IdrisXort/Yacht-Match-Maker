@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Logo/>
+    <Logo @click.native="goToHomePage" />
     <div class="Bread-Crumbs" v-if="currentPage>0">
       <bread-crumb
         v-for="(pageNumber,index) in pageNumbers"
@@ -155,6 +155,9 @@ export default {
         hardSkillMatch = 0;
         locationMatch = 0;
       });
+    },
+    goToHomePage(){
+      this.currentPage = 0;
     }
   }
 };
