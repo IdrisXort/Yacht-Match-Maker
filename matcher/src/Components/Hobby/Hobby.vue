@@ -1,8 +1,8 @@
 <template>
   <div class="checkbox-container" :class="{'icon-active': status}">
     <p>{{hobby}}</p>
-     <i :class="icon"></i>
-    <input type="checkbox" @click="changeStatus" name="hobby" :value="hobby">
+    <i :class="icon" @click="changeStatus"></i>
+    <input type="checkbox" :checked="status"  @click="changeStatus" name="hobby" :value="hobby" id="icon">
   </div>
 </template>
 <script>
