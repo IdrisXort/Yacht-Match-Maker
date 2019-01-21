@@ -14,14 +14,14 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .checkbox-container {
-  padding: 15px;
+  padding: 10px;
   border-radius: 15px;
   text-align: center;
   display: inline-table;
   width: 180px;
-  margin: 15px 30px 15px 0px;
+  margin: 10px 25px 10px 0px;
 }
 .checkbox-container input {
   display: block;
@@ -32,7 +32,7 @@ export default {
   padding: 10px
 }
 .checkbox-container i::before {
-  font-size: 100px;
+  font-size: 50px;
 }
 .checkbox-container p {
   text-align: center;
