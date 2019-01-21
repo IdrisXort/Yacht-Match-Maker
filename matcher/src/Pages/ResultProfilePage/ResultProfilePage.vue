@@ -33,13 +33,17 @@
           </div>
           <div class="profile--hobbies-container">
             <b>Hobbies</b>
+        <li v-for="(hobby, index) in hobbies" :key="index">
+          {{hobby}}
+          <i :class="setHobbyClassName(hobby)"></i>
+        </li>
           </div>
           <div class="profile-companies-container"></div>
         </div>
       </div>
-      <p>
+      <div>
         <b>Op zoek naar type bedrijf:</b>
-      </p>
+      </div>
       <div class="row">
         <Match/>
         <Match/>
@@ -51,6 +55,7 @@
 <script>
 import Match from "../../Components/Match/Match";
 export default {
+  props: ["hobbies", "setHobbyClassName"],
   components: {
     Match: Match
   }
@@ -87,12 +92,10 @@ export default {
 
 .profile--details-container {
   /* padding: 10px; */
-  
 }
 
 .profile--leerstijl-container {
-    margin-bottom: 20px;
-
+  margin-bottom: 20px;
 }
 
 .profile--leerstijl-details {
