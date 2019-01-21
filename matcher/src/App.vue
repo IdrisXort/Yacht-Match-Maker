@@ -24,10 +24,11 @@
         <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
         <previous-button text="previous" v-if="currentPage>1 && currentPage<5" :onClick="goToPreviousPage"/>
         <next-button
-          :text="currentPage==3?'Match':'next'"
-          v-show="currentPage>0 && currentPage<5"
+          text="next"
+          v-show="currentPage>0 && currentPage<5 && currentPage!=3"
           :onClick="goToNextPage"
         />
+        <match-button text="match" v-if="currentPage == 3" :onClick="goToNextPage"/>
       </div>
     </div>
     <div class="container-fluid">
@@ -59,6 +60,7 @@ export default {
     previousButton: Button,
     nextButton: Button,
     startButton: Button,
+    matchButton: Button,
     Logo: Logo,
     BreadCrumb: BreadCrumb,
     Footer: Footer,
