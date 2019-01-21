@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <div>
+      <br />
       <result 
       v-for="(result,index) in results.sort(function(res1,res2){return res2.totalMatch-res1.totalMatch})"
       :key="index"
