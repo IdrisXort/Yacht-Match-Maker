@@ -7,7 +7,9 @@
             <div class="profile--picture">
               <div class="profile--label">Profile picture</div>
             </div>
-            <p>Name: <span>{{ name }}</span></p>
+            <p>Name:
+              <span>{{ name }}</span>
+            </p>
             <p>Emailadres:</p>
           </div>
         </div>
@@ -32,15 +34,15 @@
             </div>
           </div>
           <div class="profile--hobbies-container">
-              <p>
-                <b>Hobbies</b>
-              </p>
-              <div class="row">
-            <div class="profile--hobbies col-sm-2" v-for="(hobby, index) in hobbies" :key="index">
-              <i :class="setHobbyClassName(hobby)"></i>
-              <p>{{hobby}}</p>
-            </div>
+            <p>
+              <b>Hobbies</b>
+            </p>
+            <div class="row">
+              <div class="profile--hobbies col-sm-2" v-for="(hobby, index) in hobbies" :key="index">
+                <i :class="setHobbyClassName(hobby)"></i>
+                <p>{{hobby}}</p>
               </div>
+            </div>
           </div>
           <div class="profile-companies-container"></div>
         </div>
@@ -49,9 +51,15 @@
         <b>Op zoek naar type bedrijf:</b>
       </div>
       <div class="row">
-        <Match/>
-        <Match/>
-        <Match/>
+        <!-- <Match/> -->
+        <!-- <Match/> -->
+        <!-- <Match/> -->
+        <Match
+          v-for="(result,index) in results.sort(function(res1,res2){return res2.totalMatch-res1.totalMatch}).splice(0,3)"
+          :key="index"
+          :companyName="result.companyName"
+          :matchPercentage="result.totalMatch"
+        />
       </div>
     </div>
   </div>
@@ -59,10 +67,11 @@
 <script>
 import Match from "../../Components/Match/Match";
 export default {
-  props: ["hobbies", "setHobbyClassName", "name"],
+  props: ["hobbies", "setHobbyClassName", "name", "results"],
   components: {
     Match: Match,
-    name: name,
+    name: name
+    // oneliner: oneliner
   }
 };
 </script>
