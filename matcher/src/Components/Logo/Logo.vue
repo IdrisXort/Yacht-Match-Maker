@@ -1,5 +1,5 @@
 <template>
-      <nav class="navbar sticky-top navbar-light">
+      <nav class="navbar navbar-light">
         <a class="navbar-brand">
             <span class="logo d-inline-block align-center">YACHT</span>
             <span class="sublogo d-inline-block align-center">Match finder</span>
