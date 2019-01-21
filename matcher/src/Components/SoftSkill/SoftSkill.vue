@@ -1,7 +1,7 @@
 <template>
   <tr>
-    <th scope="col" >{{index}}.</th>
-    <td><Label class="label">{{question}}</Label></td>
+    <th scope="col" >{{index + 1}}.</th>
+    <td><Label>{{question}}</Label></td>
     <td><input class="input__radio" type="radio" v-model="selectedOption" @click="getSkill" :value="option1"></td>
     <td><input class="input__radio" type="radio" v-model="selectedOption" @click="getSkill" :value="option2"></td>
   </tr>
@@ -31,8 +31,5 @@ export default {
 <style scoped>
   .input__radio {
     min-width: 100px;
-  }
-  .label{
-    font-size: 16px;
   }
 </style>

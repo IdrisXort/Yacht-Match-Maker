@@ -1,29 +1,39 @@
 <template>
-  <div class="container">
-    <Logo @click.native="goToHomePage" />
-    <div class="Bread-Crumbs" v-if="currentPage>0">
-      <bread-crumb
-        v-for="(pageNumber,index) in pageNumbers"
-        :key="index"
-        :pageNumber="pageNumber"
-        :isActive="pageNumber==currentPage"
-        @click.native="goToPageNumber(pageNumber)"
-        v-show="currentPage<4"
-      />
+  <div class="body--frame">
+    <div class="container-fluid">
+       <Logo @click.native="goToHomePage" />
     </div>
-    <IntroductionPage v-show="currentPage==0"/>
-    <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
-    <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
-    <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
-    <match-page v-show="currentPage==4" :results="[...results]"/>
-    <result-page v-show="currentPage==5" :results="[...results]"/>
-    <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
-    <previous-button text="previous" v-if="currentPage>1 && currentPage<5" :onClick="goToPreviousPage"/>
-    <next-button
-      :text="currentPage==3?'Match':'next'"
-      v-show="currentPage>0 && currentPage<5"
-      :onClick="goToNextPage"
-    />
+    <div class="container">
+      <div class="Bread-Crumbs" v-if="currentPage>0">
+        <bread-crumb
+          v-for="(pageNumber,index) in pageNumbers"
+          :key="index"
+          :pageNumber="pageNumber"
+          :isActive="pageNumber==currentPage"
+          @click.native="goToPageNumber(pageNumber)"
+          v-show="currentPage<4"
+        />
+      </div>
+      <IntroductionPage v-show="currentPage==0"/>
+      <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
+      <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
+      <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
+      <match-page v-show="currentPage==4" :results="[...results]"/>
+      <result-page v-show="currentPage==5" :results="[...results]"/>
+      <div class="button__align--center">
+        <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
+        <previous-button text="previous" v-if="currentPage>1 && currentPage<5" :onClick="goToPreviousPage"/>
+        <next-button
+          text="next"
+          v-show="currentPage>0 && currentPage<5 && currentPage!=3"
+          :onClick="goToNextPage"
+        />
+        <match-button text="match" v-if="currentPage == 3" :onClick="goToNextPage"/>
+      </div>
+    </div>
+    <div class="container-fluid">
+       <Footer />
+    </div>
   </div>
 </template>
 
@@ -35,6 +45,7 @@ import Werk from "./Pages/WerkPage/Werk";
 import Button from "./Components/Buttons/Button";
 import Logo from "./Components/Logo/Logo";
 import BreadCrumb from "./Components/BreadCrumbs/BreadCrumb";
+import Footer from "./Components/Footer/Footer";
 import data from "./data.json";
 import LeerStijlePage from "./Pages/LeerStijlPage/LeerStijlPage";
 import dataToCompare from "./dataToCompare";
@@ -49,8 +60,10 @@ export default {
     previousButton: Button,
     nextButton: Button,
     startButton: Button,
+    matchButton: Button,
     Logo: Logo,
     BreadCrumb: BreadCrumb,
+    Footer: Footer,
     LeerStijlePage: LeerStijlePage,
     matchButton: Button,
     ResultPage: ResultPage,

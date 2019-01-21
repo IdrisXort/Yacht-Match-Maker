@@ -6,10 +6,10 @@
   </div> -->
     <div class="row">
       <div class="col-sm-6">
-        <h2>{{companyName}}</h2>
+        <p class="result">{{companyName}}</p>
       </div>
       <div class="col-sm-6">
-        <h2>{{Math.round(parseInt(matchPercentage)/11*100)+'%'}}</h2>
+        <p class="result">{{Math.round(parseInt(matchPercentage)/11*100)+'%'}}</p>
       </div>
     </div>
 </template>
@@ -20,5 +20,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+  .result{
+    font-size:20px;
+  }
 </style>

@@ -2,8 +2,8 @@
   <div class="container">
 		<div class="row">
 			<div class="col-12">
-				<label>Bedankt voor het invullen van de formulier!</label>
-				<p>
+				<label class="intro__Label">Bedankt voor het invullen van de formulier!</label>
+				<p class="intro__text">
 					Hieronder zie je de top 3 bedrijven die het
 					meest matchen met wat jij van een bedrijf verwacht. Wil je weten welke bedrijven dat
 					zijn en wat voor een persoon je bent? De Yacht recruiter zal het in alle detail uitleggen
@@ -33,4 +33,11 @@ export default {
 </script>
 
 <style scoped>
+	.intro__Label{
+		font-size:20px;
+	}
+	.intro__text {
+		font-size:20px;
+		color:#57606f;
+	}
 </style>

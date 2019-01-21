@@ -1,6 +1,7 @@
 <template>
-  <div class="introduction-Container">
-    <p class="col-md-8">
+  <div class="introduction-Container col-12">
+    <label class="intro__Label">Welkom bij de Yacht match finder!</label>
+    <p class="intro__text">
       Met Match finder proberen wij achter te komen wat jij voor persoon je
       bent en wat je wilt in je volgende werkgever. Op die manier kunnen wij
       het bedrijf vinden dat het meest bij jouw behoefte past. Vul de
@@ -28,7 +29,7 @@ export default {
   
 };
 </script>
-<style>
+<style scoped>
 .introduction {
   display: flex;
   align-items: center;
@@ -36,9 +37,17 @@ export default {
   margin: auto;
 }
 .introduction--image {
-  width: 450;
+  width: 500px;
 }
 
+.intro__text {
+  font-size:20px;
+  color:#57606f;
+}
+
+.intro__Label{
+		font-size:20px;
+	}
 </style>
 
 
