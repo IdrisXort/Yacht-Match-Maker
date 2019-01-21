@@ -7,17 +7,27 @@
             <div class="profile--picture">
               <div class="profile--label">Profile picture</div>
             </div>
-            <p>Name:
+            <p>
+              <b>
+                Name:
+              </b>
+              <br>
               <span>{{ name }}</span>
             </p>
-            <p>Emailadres:</p>
+            <p>
+              <b>
+                Email address:
+              </b>
+              <br>
+              <span>nog-geen@email.adres</span>
+              </p>
           </div>
         </div>
         <div class="col-sm-8 profile--details-container">
           <p class="profile--oneliner">
-            {{oneliner}}
+            <b>{{oneliner}}</b>
             <!-- Ik ben een leergierig en harde werker die elke
-            dag iets nieuws wil leren. -->
+            dag iets nieuws wil leren.-->
           </p>
           <div class="profile--leerstijl-container">
             <div class="row">
