@@ -15,14 +15,14 @@
     <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
     <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
     <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
-    <match-page v-show="currentPage==4" :results="[...results]"/>
-    <result-page v-show="currentPage==5" :results="[...results]"/>
-    <LoadingPage v-show="currentPage==6" />
+    <match-page v-show="currentPage==5" :results="[...results]"/>
+    <result-page v-show="currentPage==6" :results="[...results]"/>
+    <LoadingPage v-if="currentPage==4" :next="goToNextPage" />
     <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
-    <previous-button text="previous" v-if="currentPage>1 && currentPage<5" :onClick="goToPreviousPage"/>
+    <previous-button text="previous" v-if="currentPage>1 && currentPage<4" :onClick="goToPreviousPage"/>
     <next-button
       :text="currentPage==3?'Match':'next'"
-      v-show="currentPage>0 && currentPage<5"
+      v-show="currentPage>0 && currentPage<4"
       :onClick="goToNextPage"
     />
   </div>
@@ -87,6 +87,7 @@ export default {
       }
     };
   },
+
   methods: {
     goToNextPage() {
       if (this.currentPage < 6) {

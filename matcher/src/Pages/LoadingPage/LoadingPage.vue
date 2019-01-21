@@ -1,5 +1,5 @@
 <template>
-    <progress-bar></progress-bar>
+    <progress-bar :next="next"></progress-bar>
 </template>
 
 <script>
@@ -7,7 +7,8 @@ import ProgressBar from "../../Components/ProgressBar/ProgressBar";
 export default {
     components: {
         ProgressBar: ProgressBar
-    }
+    },
+    props:['next']
 }
 </script>
 >
