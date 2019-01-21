@@ -7,7 +7,7 @@
             <div class="profile--picture">
               <div class="profile--label">Profile picture</div>
             </div>
-            <p>Name:</p>
+            <p>Name: <span>{{ name }}</span></p>
             <p>Emailadres:</p>
           </div>
         </div>
@@ -59,9 +59,10 @@
 <script>
 import Match from "../../Components/Match/Match";
 export default {
-  props: ["hobbies", "setHobbyClassName"],
+  props: ["hobbies", "setHobbyClassName", "name"],
   components: {
-    Match: Match
+    Match: Match,
+    name: name,
   }
 };
 </script>

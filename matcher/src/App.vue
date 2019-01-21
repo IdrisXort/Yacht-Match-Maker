@@ -17,7 +17,7 @@
     <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
     <match-page v-show="currentPage==4" :results="[...results]"/>
     <result-page v-show="currentPage==5" :results="[...results]"/>
-    <result-profile-page v-show="currentPage==6" :hobbies="person.unProcessedData.hobbies" :setHobbyClassName="setHobbyClassName" />
+    <result-profile-page v-show="currentPage==6" :name="person.unProcessedData.name" :hobbies="person.unProcessedData.hobbies" :setHobbyClassName="setHobbyClassName" />
     <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
     <previous-button text="previous" v-if="currentPage>1 && currentPage<5" :onClick="goToPreviousPage"/>
     <next-button
