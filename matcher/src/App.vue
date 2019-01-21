@@ -17,6 +17,7 @@
     <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
     <match-page v-show="currentPage==4" :results="[...results]"/>
     <result-page v-show="currentPage==5" :results="[...results]"/>
+    <LoadingPage v-show="currentPage==6" />
     <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
     <previous-button text="previous" v-if="currentPage>1 && currentPage<5" :onClick="goToPreviousPage"/>
     <next-button
@@ -40,6 +41,7 @@ import LeerStijlePage from "./Pages/LeerStijlPage/LeerStijlPage";
 import dataToCompare from "./dataToCompare";
 import ResultPage from "./Pages/ResultPage/ResultPage";
 import MatchPage from "./Pages/MatchPage/MatchPage";
+import LoadingPage from "./Pages/LoadingPage/LoadingPage";
 
 export default {
   components: {
@@ -54,13 +56,15 @@ export default {
     LeerStijlePage: LeerStijlePage,
     matchButton: Button,
     ResultPage: ResultPage,
-    MatchPage: MatchPage
+    MatchPage: MatchPage,
+    LoadingPage: LoadingPage
+
   },
   name: "app",
   data() {
     return {
       currentPage: 0,
-      pageNumbers: [1, 2, 3, 4, 5],
+      pageNumbers: [1, 2, 3, 4, 5, 6],
       questions: data.questions,
       hobbies: data.hobbies,
       icons: data.hobbyIcons,
