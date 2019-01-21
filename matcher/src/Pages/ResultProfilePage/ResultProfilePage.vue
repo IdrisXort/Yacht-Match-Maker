@@ -15,8 +15,9 @@
         </div>
         <div class="col-sm-8 profile--details-container">
           <p class="profile--oneliner">
-            Ik ben een leergierig en harde werker die elke
-            dag iets nieuws wil leren.
+            {{oneliner}}
+            <!-- Ik ben een leergierig en harde werker die elke
+            dag iets nieuws wil leren. -->
           </p>
           <div class="profile--leerstijl-container">
             <div class="row">
@@ -67,7 +68,7 @@
 <script>
 import Match from "../../Components/Match/Match";
 export default {
-  props: ["hobbies", "setHobbyClassName", "name", "results"],
+  props: ["hobbies", "setHobbyClassName", "name", "results", "oneliner"],
   components: {
     Match: Match,
     name: name
