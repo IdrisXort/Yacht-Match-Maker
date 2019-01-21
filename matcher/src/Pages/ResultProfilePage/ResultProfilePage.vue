@@ -32,11 +32,15 @@
             </div>
           </div>
           <div class="profile--hobbies-container">
-            <b>Hobbies</b>
-        <li v-for="(hobby, index) in hobbies" :key="index">
-          {{hobby}}
-          <i :class="setHobbyClassName(hobby)"></i>
-        </li>
+              <p>
+                <b>Hobbies</b>
+              </p>
+              <div class="row">
+            <div class="profile--hobbies col-sm-2" v-for="(hobby, index) in hobbies" :key="index">
+              <i :class="setHobbyClassName(hobby)"></i>
+              <p>{{hobby}}</p>
+            </div>
+              </div>
           </div>
           <div class="profile-companies-container"></div>
         </div>
@@ -108,5 +112,23 @@ export default {
   font-size: 12px;
   margin-bottom: 0px;
   width: 90%;
+}
+
+.profile--hobbies {
+  /* padding: 15px; */
+  /* border-radius: 15px; */
+  text-align: center;
+  display: inline-table;
+  /* width: 75px; */
+  /* margin: 15px 30px 15px 0px; */
+}
+
+.profile--hobbies i {
+  position: relative;
+  padding: 10px;
+}
+
+.profile--hobbies i::before {
+  font-size: 30px;
 }
 </style>
