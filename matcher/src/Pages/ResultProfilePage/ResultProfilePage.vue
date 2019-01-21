@@ -58,13 +58,13 @@ export default {
 </script>
 <style>
 .profile--picture-container {
-  margin: 10px;
+  /* margin: 10px; */
 }
 
 .profile-container {
   border: 1.5px solid #87a0e6;
   border-radius: 8px;
-  padding: 15px;
+  padding: 20px;
 }
 .profile--picture {
   margin-bottom: 20px;
@@ -86,7 +86,7 @@ export default {
 }
 
 .profile--details-container {
-  padding: 10px;
+  /* padding: 10px; */
   
 }
 
