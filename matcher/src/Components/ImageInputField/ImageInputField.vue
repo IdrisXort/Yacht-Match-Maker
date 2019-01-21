@@ -1,8 +1,8 @@
 <template>
-<div>
+<div class="image__field--container">
 <Label>{{label}}</Label>
-  <label class="image__field--button">
-    <i class="fas fa-upload icon__left"></i>upload
+  <label class="image__field--button" @click="getImage()">
+    <i class="fas fa-upload icon__left"></i>{{ text }}
     <input type="file" accept="image/png, image/jpeg" @change="getImage">
   </label>
 </div>
@@ -12,14 +12,18 @@ import { EventBus } from "../../Event-bus";
 export default {
   data() {
     return {
-      image: null
+      image: null,
+      text: 'upload'
     };
   },
   props: ['label'],
   methods: {
     getImage(event) {
       this.image = event.target.value;
-
+      this.text=this.image;
+      if(this.text == ''){
+        this.text = 'upload';
+      }
       EventBus.$emit("imageTaken", this.image);
     }
   }
@@ -37,7 +41,7 @@ export default {
     font-size: 16px;
     font-weight: 700;
     line-height: 25px;
-    background-color: #192a56;
+    background-color: #0f1941;
     cursor: pointer;
   } 
 
