@@ -3,7 +3,6 @@
     <div class="container-fluid">
        <Logo @click.native="goToHomePage" />
     </div>
-    <div class="body--frame__pages">
       <div class="container">
         <div class="Bread-Crumbs" v-if="currentPage>0">
           <bread-crumb
@@ -30,7 +29,6 @@
             :onClick="goToNextPage"
           />
           <match-button text="match" v-if="currentPage == 3" :onClick="goToNextPage"/>
-        </div>
       </div>
     </div>
     <div class="container-fluid">
