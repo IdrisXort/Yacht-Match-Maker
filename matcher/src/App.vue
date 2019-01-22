@@ -20,12 +20,13 @@
         <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
         <match-page v-show="currentPage==4" :results="[...results]"/>
         <result-page v-show="currentPage==5" :results="[...results]"/>
+        <result-profile-page v-show="currentPage==6" :results="[...results]" :name="person.unProcessedData.name" :oneliner="person.unProcessedData.info" :hobbies="person.unProcessedData.hobbies" :setHobbyClassName="setHobbyClassName" />
         <div class="button__align--center">
           <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
           <previous-button text="previous" v-if="currentPage>1 && currentPage<5" :onClick="goToPreviousPage"/>
           <next-button
             text="next"
-            v-show="currentPage>0 && currentPage<5 && currentPage!=3"
+            v-show="currentPage>0 && currentPage<6 && currentPage!=3"
             :onClick="goToNextPage"
           />
           <match-button text="match" v-if="currentPage == 3" :onClick="goToNextPage"/>
@@ -51,6 +52,7 @@ import LeerStijlePage from "./Pages/LeerStijlPage/LeerStijlPage";
 import dataToCompare from "./dataToCompare";
 import ResultPage from "./Pages/ResultPage/ResultPage";
 import MatchPage from "./Pages/MatchPage/MatchPage";
+import ResultProfilePage from "./Pages/ResultProfilePage/ResultProfilePage"
 
 export default {
   components: {
@@ -67,7 +69,8 @@ export default {
     LeerStijlePage: LeerStijlePage,
     matchButton: Button,
     ResultPage: ResultPage,
-    MatchPage: MatchPage
+    MatchPage: MatchPage,
+    ResultProfilePage: ResultProfilePage,
   },
   name: "app",
   data() {
@@ -86,7 +89,7 @@ export default {
           name: "",
           image: null,
           hobbies: [],
-          info: ""
+          info: ""  
         },
         processiveData: {
           softSkills: [],
@@ -130,6 +133,9 @@ export default {
       }
     },
     emitMethods() {},
+    setHobbyClassName(hobby) {
+      return data.hobbyIcons[data.hobbies.indexOf(hobby)];
+    },
     goToPreviousPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
