@@ -3,7 +3,6 @@
     <div class="container-fluid">
        <Logo @click.native="goToHomePage" />
     </div>
-    <div class="body--frame__pages">
       <div class="container">
         <div class="Bread-Crumbs" v-if="currentPage>0">
           <bread-crumb
@@ -19,18 +18,19 @@
         <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
         <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
         <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
-        <match-page v-show="currentPage==4" :results="[...results]"/>
-        <result-page v-show="currentPage==5" :results="[...results]"/>
+        <LoadingPage v-if="currentPage==4" :next="goToNextPage" />
+        <match-page v-show="currentPage==5" :results="[...results]"/>
+        <result-page v-show="currentPage==6" :results="[...results]"/>
+        <result-profile-page v-show="currentPage==7" :results="[...results]" :name="person.unProcessedData.name" :oneliner="person.unProcessedData.info" :hobbies="person.unProcessedData.hobbies" :setHobbyClassName="setHobbyClassName" />
         <div class="button__align--center">
           <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
-          <previous-button text="previous" v-if="currentPage>1 && currentPage<5" :onClick="goToPreviousPage"/>
+          <previous-button text="previous" v-if="currentPage>1 && currentPage<6 && currentPage!=4"  :onClick="goToPreviousPage"/>
           <next-button
             text="next"
-            v-show="currentPage>0 && currentPage<5 && currentPage!=3"
+            v-show="currentPage>0 && currentPage<8 && currentPage!=3 && currentPage!=4"
             :onClick="goToNextPage"
           />
           <match-button text="match" v-if="currentPage == 3" :onClick="goToNextPage"/>
-        </div>
       </div>
     </div>
     <div class="container-fluid">
@@ -54,6 +54,7 @@ import dataToCompare from "./dataToCompare";
 import ResultPage from "./Pages/ResultPage/ResultPage";
 import MatchPage from "./Pages/MatchPage/MatchPage";
 import LoadingPage from "./Pages/LoadingPage/LoadingPage";
+import ResultProfilePage from "./Pages/ResultProfilePage/ResultProfilePage"
 
 export default {
   components: {
@@ -71,14 +72,14 @@ export default {
     matchButton: Button,
     ResultPage: ResultPage,
     MatchPage: MatchPage,
-    LoadingPage: LoadingPage
-
+    LoadingPage: LoadingPage,
+    ResultProfilePage: ResultProfilePage,
   },
   name: "app",
   data() {
     return {
       currentPage: 0,
-      pageNumbers: [1, 2, 3, 4, 5, 6],
+      pageNumbers: [1, 2, 3, 4, 5, 6, 7],
       questions: data.questions,
       hobbies: data.hobbies,
       icons: data.hobbyIcons,
@@ -91,7 +92,7 @@ export default {
           name: "",
           image: null,
           hobbies: [],
-          info: ""
+          info: ""  
         },
         processiveData: {
           softSkills: [],
@@ -104,7 +105,7 @@ export default {
 
   methods: {
     goToNextPage() {
-      if (this.currentPage < 6) {
+      if (this.currentPage < 8) {
         this.currentPage++;
         EventBus.$on("nameChanged", name => {
           this.person.unProcessedData.name = name;
@@ -136,6 +137,9 @@ export default {
       }
     },
     emitMethods() {},
+    setHobbyClassName(hobby) {
+      return data.hobbyIcons[data.hobbies.indexOf(hobby)];
+    },
     goToPreviousPage() {
       if (this.currentPage > 1) {
         this.currentPage--;

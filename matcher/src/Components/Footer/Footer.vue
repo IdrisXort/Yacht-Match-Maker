@@ -1,5 +1,5 @@
 <template class="footer">
-    <nav class="navbar navbar-light">
+    <nav class="navbar fixed-bottom navbar-light">
       <span class="copyright">© Yacht 2019 </span>
     </nav>
     <!-- Ⓒ -->
