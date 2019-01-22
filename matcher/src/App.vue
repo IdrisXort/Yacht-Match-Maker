@@ -27,7 +27,7 @@
           <previous-button text="previous" v-if="currentPage>1 && currentPage<6 && currentPage!=4"  :onClick="goToPreviousPage"/>
           <next-button
             text="next"
-            v-show="currentPage>0 && currentPage<8 && currentPage!=3 && currentPage!=4"
+            v-show="currentPage>0 && currentPage<7 && currentPage!=3 && currentPage!=4"
             :onClick="goToNextPage"
           />
           <match-button text="match" v-if="currentPage == 3" :onClick="goToNextPage"/>
