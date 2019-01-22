@@ -1,21 +1,22 @@
 <template>
   <div class="checkbox-container" :class="{'icon-active': status}">
     <p>{{hobby}}</p>
-     <i :class="icon"></i>
-    <input type="checkbox" @click="changeStatus" name="hobby" :value="hobby">
+     <i :class="icon" @click="status=!status"></i>
+    <input type="checkbox" :checked="status" @click="status=!status" name="hobby" :value="hobby">
   </div>
 </template>
 <script>
 export default {
-  props: ["hobby", "getHobby", "icon"],
-  data: function(){
+  props: ["hobby", "icon",'addHobby','deleteHobby'],
+  data: function() {
     return {
       status: false
-    }
+    };
   },
-  methods: {
-    changeStatus() {
-      this.status = !this.status;
+  watch: {
+    status(doesntexist, exists) {
+      if(doesntexist)this.addHobby(this.hobby);
+      if(exists)this.deleteHobby(this.hobby);
     }
   }
 };
@@ -31,11 +32,11 @@ export default {
 }
 .checkbox-container input {
   display: block;
-   margin: 0 auto;
+  margin: 0 auto;
 }
 .checkbox-container i {
   position: relative;
-  padding: 10px
+  padding: 10px;
 }
 .checkbox-container i::before {
   font-size: 50px;
