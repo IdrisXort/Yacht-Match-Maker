@@ -37,7 +37,7 @@
               </div>
               <div class="col-sm-9 no-padding-left profile--leerstijl-details">
                 <p>
-                  De kacht van de denker ligt in zijn analytische vermogen. Hij is gericht op informatie,
+                  De kracht van de denker ligt in zijn analytische vermogen. Hij is gericht op informatie,
                   feiten en begrippen die nodig zijn om een onderwerp conceptueel te begrijpen.
                   Daarbij zoeken naar logische samenhang en een intellectuele uitdaging.
                 </p>
@@ -62,9 +62,6 @@
         <b>Op zoek naar type bedrijf:</b>
       </div>
       <div class="row">
-        <!-- <Match/> -->
-        <!-- <Match/> -->
-        <!-- <Match/> -->
         <Match
           v-for="(result,index) in results.sort(function(res1,res2){return res2.totalMatch-res1.totalMatch}).splice(0,3)"
           :key="index"
@@ -81,16 +78,10 @@ export default {
   props: ["hobbies", "setHobbyClassName", "name", "results", "oneliner"],
   components: {
     Match: Match,
-    name: name
-    // oneliner: oneliner
   }
 };
 </script>
 <style>
-.profile--picture-container {
-  /* margin: 10px; */
-}
-
 .profile-container {
   border: 1.5px solid #87a0e6;
   border-radius: 8px;
@@ -115,10 +106,6 @@ export default {
   text-align: center;
 }
 
-.profile--details-container {
-  /* padding: 10px; */
-}
-
 .profile--leerstijl-container {
   margin-bottom: 20px;
 }
@@ -136,12 +123,8 @@ export default {
 }
 
 .profile--hobbies {
-  /* padding: 15px; */
-  /* border-radius: 15px; */
   text-align: center;
   display: inline-table;
-  /* width: 75px; */
-  /* margin: 15px 30px 15px 0px; */
 }
 
 .profile--hobbies i {
