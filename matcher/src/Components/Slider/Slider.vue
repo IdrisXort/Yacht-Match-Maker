@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import { EventBus } from "../../Event-bus";
 export default {
   data: function() {
     return {
@@ -62,16 +63,21 @@ export default {
     };
   },
   props: ["label"],
+  watch:{
+    statusRange(newStatus,oldStatus){
+      EventBus.$emit("companySizeChanged", newStatus);
+      }
+  },
   methods: {
     getRangeValue() {
       var info = this.numberRange;
       this.labelRange = true;
       if (info > 250) {
-        return (this.statusRange = "Multinational");
+        this.statusRange = "Multinational";
       } else if (info > 51) {
-        return (this.statusRange = "Middel");
+        this.statusRange = "Middel";
       } else if (info > 0) {
-        return (this.statusRange = "klein");
+        this.statusRange = "klein";
       }
     },
     setRangeValueOnClick(rangeValue, company) {
@@ -84,7 +90,6 @@ export default {
 </script>
 
 <style>
-
 .slider {
   -webkit-appearance: none;
   width: 100%;
