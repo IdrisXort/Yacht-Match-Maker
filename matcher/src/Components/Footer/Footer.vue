@@ -1,5 +1,5 @@
 <template class="footer">
-    <nav class="navbar fixed-bottom navbar-light">
+    <nav class="navbar navbar-light">
       <span class="copyright">© Yacht 2019 </span>
     </nav>
     <!-- Ⓒ -->
@@ -11,13 +11,10 @@
 </script>
 <style scoped>
     nav{
-			/* -webkit-box-shadow: 0 -3px -20px 0 rgba(0,0,0,.1);
-			-moz-box-shadow: 0 -3px -20px 0 rgba(0,0,0,.1);
-			box-shadow: 0 -3px -20px 0 rgba(0,0,0,.1); */
 			background-color:#0f1941;
 			-webkit-box-shadow: 0px -10px 30px rgba(0, 0, 0, 0.1);
 			-moz-box-shadow: 0px -10px 30px rgba(0, 0, 0, 0.1);
-			box-shadow: 0px -10px 30px rgba(0, 50, 0, 0.1);
+			box-shadow: 0px -10px 30px rgba(0, 0, 0, 0.1);
     }
     .copyright{
 			color: white;
@@ -29,5 +26,5 @@
       display: flex;
       align-items: center;
       flex-direction: column;
-    }
+		}
 </style>

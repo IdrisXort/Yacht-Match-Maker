@@ -3,32 +3,34 @@
     <div class="container-fluid">
        <Logo @click.native="goToHomePage" />
     </div>
-    <div class="container">
-      <div class="Bread-Crumbs" v-if="currentPage>0">
-        <bread-crumb
-          v-for="(pageNumber,index) in pageNumbers"
-          :key="index"
-          :pageNumber="pageNumber"
-          :isActive="pageNumber==currentPage"
-          @click.native="goToPageNumber(pageNumber)"
-          v-show="currentPage<4"
-        />
-      </div>
-      <IntroductionPage v-show="currentPage==0"/>
-      <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
-      <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
-      <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
-      <match-page v-show="currentPage==4" :results="[...results]"/>
-      <result-page v-show="currentPage==5" :results="[...results]"/>
-      <div class="button__align--center">
-        <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
-        <previous-button text="previous" v-if="currentPage>1 && currentPage<5" :onClick="goToPreviousPage"/>
-        <next-button
-          text="next"
-          v-show="currentPage>0 && currentPage<5 && currentPage!=3"
-          :onClick="goToNextPage"
-        />
-        <match-button text="match" v-if="currentPage == 3" :onClick="goToNextPage"/>
+    <div class="body--frame__pages">
+      <div class="container">
+        <div class="Bread-Crumbs" v-if="currentPage>0">
+          <bread-crumb
+            v-for="(pageNumber,index) in pageNumbers"
+            :key="index"
+            :pageNumber="pageNumber"
+            :isActive="pageNumber==currentPage"
+            @click.native="goToPageNumber(pageNumber)"
+            v-show="currentPage<4"
+          />
+        </div>
+        <IntroductionPage v-show="currentPage==0"/>
+        <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
+        <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
+        <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
+        <match-page v-show="currentPage==4" :results="[...results]"/>
+        <result-page v-show="currentPage==5" :results="[...results]"/>
+        <div class="button__align--center">
+          <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
+          <previous-button text="previous" v-if="currentPage>1 && currentPage<5" :onClick="goToPreviousPage"/>
+          <next-button
+            text="next"
+            v-show="currentPage>0 && currentPage<5 && currentPage!=3"
+            :onClick="goToNextPage"
+          />
+          <match-button text="match" v-if="currentPage == 3" :onClick="goToNextPage"/>
+        </div>
       </div>
     </div>
     <div class="container-fluid">
