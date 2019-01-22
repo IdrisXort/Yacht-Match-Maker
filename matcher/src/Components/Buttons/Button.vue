@@ -26,7 +26,7 @@ export default {
     font-size: 16px;
     font-weight: 700;
     line-height: 25px;
-    background-color: #192a56;
+    background-color: #0f1941;
   } 
 
   .btn:focus {
@@ -37,8 +37,8 @@ export default {
   .button:hover {
    /* we zien wel wat de hover wordt voor nu even iets subtiel en kijken of wit wel handig is als hover*/
     background-color: white;
-    color: #192a56;
-    border: 1px solid #192a56;
+    color: #0f1941;
+    border: 1px solid #0f1941;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(39, 60, 117,1.0);
     transition: 0.3s;
   }
@@ -56,10 +56,23 @@ export default {
     transition: 0.3s;
   }
 
+   .button__match {
+    background-color: #e84118;
+  }
+
+  .button__match:hover {
+   /* we zien wel wat de hover wordt voor nu even iets subtiel en kijken of wit wel handig is als hover*/
+    background-color: white;
+    color: #e84118;
+    border: 1px solid #e84118;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(232, 65, 24,1.0);
+    transition: 0.3s;
+  }
+
   .button__dropdown {
     background-color: white;
-    color: #192a56;
-    border: 1px solid #192a56;
+    color: #0f1941;
+    border: 1px solid #0f1941;
   }
 
   .icon__right {

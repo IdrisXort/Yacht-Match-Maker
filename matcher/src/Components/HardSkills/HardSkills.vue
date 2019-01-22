@@ -1,17 +1,15 @@
 <template>
   <div>
     <div>
-      <div class="container no-padding-left">
-        <div class="col-sm-9 no-padding-left">
-          <div class="row">
-              <label>{{label}}</label>
-            <div class="col-sm no-padding-left">
+      <div class="col-11">
+        <div class="row">
+            <label>{{label}}</label>
+            <div>
               <hard-skill v-for="(skill,index) in skills" 
               :key="index" 
               :skill="skill"
               :getSkill="getSkill"              
               />
-            </div>
           </div>
         </div>
       </div>
@@ -44,7 +42,4 @@ export default {
 };
 </script>
 <style>
-.no-padding-left {
-  padding-left: 0px;
-}
 </style>

@@ -24,3 +24,17 @@ label {
 .no-padding-right {
     padding-right: 0px;
 }
+.container-fluid{
+    padding-right:0;
+    padding-left:0;
+}
+.button__align--center{
+    text-align:center;
+}
+
+  .body--frame__pages {
+    height:100vh;
+    position:relative;
+    display:block;
+    bottom: 0px;
+  }
