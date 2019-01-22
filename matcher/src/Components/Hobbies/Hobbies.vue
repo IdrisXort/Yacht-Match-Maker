@@ -35,16 +35,18 @@ export default {
   props: ["label", "hobbies", "icons"],
   methods: {
     addHobby(hobby) {
-      if(!this.hobbyExistsInTheList(hobby)){
-        this.filledHobbies.push(hobby);      
-      }  
+      if (!this.hobbyExistsInTheList(hobby)) {
+        this.filledHobbies.push(hobby);
+        EventBus.$emit("hobbyChanged", this.filledHobbies);
+      }
     },
-    deleteHobby(hobby){     
-      if(this.hobbyExistsInTheList(hobby)){
-        this.filledHobbies=this.filledHobbies.filter(a => a != hobby);        
-      } 
+    deleteHobby(hobby) {
+      if (this.hobbyExistsInTheList(hobby)) {
+        this.filledHobbies = this.filledHobbies.filter(a => a != hobby);
+        EventBus.$emit("hobbyChanged", this.filledHobbies);
+      }
     },
-    hobbyExistsInTheList(hobby){
+    hobbyExistsInTheList(hobby) {
       return this.filledHobbies.includes(hobby);
     }
   }
