@@ -1,40 +1,51 @@
 <template>
   <div class="body--frame">
     <div class="container-fluid">
-       <Logo @click.native="goToHomePage" />
+      <Logo @click.native="goToHomePage"/>
     </div>
-      <div class="container">
-        <div class="Bread-Crumbs" v-if="currentPage>0">
-          <bread-crumb
-            v-for="(pageNumber,index) in pageNumbers"
-            :key="index"
-            :pageNumber="pageNumber"
-            :isActive="pageNumber==currentPage"
-            @click.native="goToPageNumber(pageNumber)"
-            v-show="currentPage<4"
-          />
-        </div>
-        <IntroductionPage v-show="currentPage==0"/>
-        <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
-        <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
-        <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
-        <LoadingPage v-if="currentPage==4" :next="goToNextPage" />
-        <match-page v-show="currentPage==5" :results="[...results]"/>
-        <result-page v-show="currentPage==6" :results="[...results]"/>
-        <result-profile-page v-show="currentPage==7" :results="[...results]" :name="person.unProcessedData.name" :oneliner="person.unProcessedData.info" :hobbies="person.unProcessedData.hobbies" :setHobbyClassName="setHobbyClassName" />
-        <div class="button__align--center">
-          <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
-          <previous-button text="previous" v-if="currentPage>1 && currentPage<6 && currentPage!=4"  :onClick="goToPreviousPage"/>
-          <next-button
-            text="next"
-            v-show="currentPage>0 && currentPage<7 && currentPage!=3 && currentPage!=4"
-            :onClick="goToNextPage"
-          />
-          <match-button text="match" v-if="currentPage == 3" :onClick="goToNextPage"/>
+    <div class="container">
+      <div class="Bread-Crumbs" v-if="currentPage>0">
+        <bread-crumb
+          v-for="(pageNumber,index) in pageNumbers"
+          :key="index"
+          :pageNumber="pageNumber"
+          :isActive="pageNumber==currentPage"
+          @click.native="goToPageNumber(pageNumber)"
+          v-show="currentPage<4"
+        />
+      </div>
+      <IntroductionPage v-show="currentPage==0"/>
+      <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
+      <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
+      <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
+      <LoadingPage v-if="currentPage==4" :next="goToNextPage"/>
+      <match-page v-show="currentPage==5" :results="[...results]"/>
+      <result-page v-show="currentPage==6" :results="[...results]"/>
+      <result-profile-page
+        v-show="currentPage==7"
+        :results="[...results]"
+        :name="person.unProcessedData.name"
+        :oneliner="person.unProcessedData.info"
+        :hobbies="person.unProcessedData.hobbies"
+        :setHobbyClassName="setHobbyClassName"
+      />
+      <div class="button__align--center">
+        <start-button text="start" v-show="currentPage==0" :onClick="goToNextPage"/>
+        <previous-button
+          text="previous"
+          v-if="currentPage>1 && currentPage<6 && currentPage!=4"
+          :onClick="goToPreviousPage"
+        />
+        <next-button
+          text="next"
+          v-show="currentPage>0 && currentPage<7 && currentPage!=3 && currentPage!=4"
+          :onClick="goToNextPage"
+        />
+        <match-button text="match" v-if="currentPage == 3" :onClick="goToNextPage"/>
       </div>
     </div>
     <div class="container-fluid">
-       <Footer />
+      <Footer/>
     </div>
   </div>
 </template>
@@ -54,7 +65,7 @@ import dataToCompare from "./dataToCompare";
 import ResultPage from "./Pages/ResultPage/ResultPage";
 import MatchPage from "./Pages/MatchPage/MatchPage";
 import LoadingPage from "./Pages/LoadingPage/LoadingPage";
-import ResultProfilePage from "./Pages/ResultProfilePage/ResultProfilePage"
+import ResultProfilePage from "./Pages/ResultProfilePage/ResultProfilePage";
 
 export default {
   components: {
@@ -73,7 +84,7 @@ export default {
     ResultPage: ResultPage,
     MatchPage: MatchPage,
     LoadingPage: LoadingPage,
-    ResultProfilePage: ResultProfilePage,
+    ResultProfilePage: ResultProfilePage
   },
   name: "app",
   data() {
@@ -87,17 +98,29 @@ export default {
       skills: data.skills,
       locations: data.locations,
       results: [],
+      validations: {
+        name: false,
+        selfInfo: false,
+        image: false,
+        hobbies: false,
+        softSkills: false,
+        companySize: false,
+        location: false,
+        hardSkills: false
+      },
+      inCompleted: [],
       person: {
         unProcessedData: {
           name: "",
           image: null,
           hobbies: [],
-          info: ""  
+          info: ""
         },
         processiveData: {
           softSkills: [],
           hardSkills: [],
-          location: ""
+          location: "",
+          companySize:''
         }
       }
     };
@@ -108,30 +131,71 @@ export default {
       if (this.currentPage < 8) {
         this.currentPage++;
         EventBus.$on("nameChanged", name => {
-          this.person.unProcessedData.name = name;
+          if (name != "") {
+            this.person.unProcessedData.name = name;
+            this.validations.name = true;
+          } else {
+            this.validations.name = false;
+          }
         });
         EventBus.$on("ChooseLocation", location => {
-          this.person.processiveData.location = location;
+          if (location != "") {
+            this.person.unProcessedData.location = location;
+            this.validations.location = true;
+          } else {
+            this.validations.location = false;
+          }
         });
         EventBus.$on("imageTaken", image => {
-          this.person.unProcessedData.image = image;
+          if (image != "") {
+            this.person.unProcessedData.image = image;
+            this.validations.image = true;
+          } else {
+            this.validations.image = false;
+          }
+        });
+        EventBus.$on("companySizeChanged", companySize => {
+                    if (companySize != "") {
+            this.person.processiveData.companySize = companySize;
+            this.validations.companySize = true;
+          } else {
+            this.validations.companySize = false;
+          }
         });
         EventBus.$on("hobbyChanged", hobbies => {
-          this.person.unProcessedData.hobbies = hobbies;
+          if (hobbies.length > 0) {
+            this.person.unProcessedData.hobbies = hobbies;
+            this.validations.hobbies = true;
+          } else {
+            this.validations.hobbies = false;
+          }
         });
         EventBus.$on("SelfInfoChanged", info => {
-          this.person.unProcessedData.info = info;
+          if (info != "") {
+            this.person.unProcessedData.info = info;
+            this.validations.info = true;
+          } else {
+            this.validations.info = false;
+          }
         });
         EventBus.$on("hardSkillsChanged", hardSkills => {
-          this.person.processiveData.hardSkills = hardSkills;
+          if (hardSkills.length > 0) {
+            this.person.processiveData.hardSkills = hardSkills;
+            this.validations.hardSkills = true;
+          } else {
+            this.validations.hardSkills = false;
+          }
         });
         EventBus.$on("SoftSkillsDone", softSkills => {
-          this.person.processiveData.softSkills = softSkills;
+          if (softSkills.length == 10) {
+            this.person.processiveData.softSkills = softSkills;
+            this.validations.softSkills = true;
+          } else {
+            this.validations.softSkills = false;
+          }
         });
-        if (
-          this.person.processiveData.hardSkills.length > 0 &&
-          this.person.processiveData.softSkills.length==10 && this.person.processiveData.location!=''
-        ) {
+        this.whatIsNotComplete();
+        if (this.isComplete()) {
           this.Match();
         }
       }
@@ -148,7 +212,7 @@ export default {
     goToPageNumber(index) {
       this.currentPage = index;
     },
-    Match:function() {
+    Match: function() {
       let softSkillMatch = 0;
       let hardSkillMatch = 0;
       let locationMatch = 0;
@@ -169,8 +233,7 @@ export default {
             }
           });
         });
-        if (this.person.processiveData.location == company.Location){
-
+        if (this.person.processiveData.location == company.Location) {
           locationMatch++;
         }
         this.results[index] = {
@@ -182,8 +245,21 @@ export default {
         locationMatch = 0;
       });
     },
-    goToHomePage(){
+    goToHomePage() {
       this.currentPage = 0;
+    },
+    isComplete() {
+      return Object.values(this.validations).every(a => a == true);
+    },
+    whatIsNotComplete() {
+      let arr = [];
+      Object.values(this.validations).map((a, index) => {
+        console.log(a,index)
+        if (a == false) {
+          arr.push(Object.keys(this.validations)[index])
+        }
+      });
+      this.inCompleted=arr;
     }
   }
 };
