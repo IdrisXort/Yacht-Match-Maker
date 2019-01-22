@@ -38,7 +38,7 @@ export default {
   padding: 10px
 }
 .checkbox-container i::before {
-  font-size: 100px;
+  font-size: 50px;
 }
 .checkbox-container p {
   text-align: center;

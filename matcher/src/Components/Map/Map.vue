@@ -22,7 +22,6 @@
       <div class="dropdown-menu" aria-labelledby="chooseLocationButton">
         <a
           class="dropdown-item"
-          href="#"
           v-for="(location,index) in locations"
           :key="index"
           @click="setLocation(index)"
