@@ -10,8 +10,8 @@
               :key="index" 
               :hobby="hobby"
               :icon="icons[index]"
-              :getHobby="getHobby"
-              @click.native="getHobby"
+              :addHobby="addHobby"
+              :deleteHobby="deleteHobby"
               />
             </div>
           </div>
@@ -26,7 +26,7 @@ import { EventBus } from "../../Event-bus";
 export default {
   data() {
     return {
-      filledHobbies:[]
+      filledHobbies: []
     };
   },
   components: {
@@ -34,17 +34,23 @@ export default {
   },
   props: ["label", "hobbies", "icons"],
   methods: {
-    getHobby(event) {
-      if (event.target.checked) {
-        this.filledHobbies.push(event.target.value);
-      } else {
-        this.filledHobbies = this.filledHobbies.filter(a => a != event.target.value);
+    addHobby(hobby) {
+      if (!this.hobbyExistsInTheList(hobby)) {
+        this.filledHobbies.push(hobby);
+        EventBus.$emit("hobbyChanged", this.filledHobbies);
       }
-      EventBus.$emit("hobbyChanged", this.filledHobbies);
+    },
+    deleteHobby(hobby) {
+      if (this.hobbyExistsInTheList(hobby)) {
+        this.filledHobbies = this.filledHobbies.filter(a => a != hobby);
+        EventBus.$emit("hobbyChanged", this.filledHobbies);
+      }
+    },
+    hobbyExistsInTheList(hobby) {
+      return this.filledHobbies.includes(hobby);
     }
   }
 };
 </script>
 <style>
-
 </style>
