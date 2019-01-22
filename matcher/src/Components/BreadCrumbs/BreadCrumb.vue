@@ -1,7 +1,7 @@
 <template>
   <div class="BreadCrumb-container">
+    
     <div :class="{'circle--active': isActive}" class="circle">{{pageNumber}}</div>
-    <div v-if="isActive" class="box">hello</div>
     <hr :class="{'breadcrumb__hr--active': isActive}" class="breadcrumb__hr" v-show="pageNumber<7">
   </div>
 </template>
