@@ -51,6 +51,9 @@
       "option2": "Gedisciplineerd"
     }
   ],
+  "breadcrumbIcons": [
+    "fas fa-user"
+  ],
   "hobbies": ["Sporten", "Muziek", "Fotograferen", "Koken", "Tekenen", "Lezen"],
   "hobbyIcons": [
     "fas fa-running",

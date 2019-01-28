@@ -1,8 +1,7 @@
 <template>
   <div class="BreadCrumb-container" v-if="pageNumber<4">
     <div :class="{'circle--active': isActive}" class="circle">
-      <!-- {{pageNumber}} -->
-      <i class="fas fa-user"></i>
+      {{pageNumber}}
       </div>
     <hr :class="{'breadcrumb__hr--active': isActive}" class="breadcrumb__hr" v-show="pageNumber<3">
   </div>
