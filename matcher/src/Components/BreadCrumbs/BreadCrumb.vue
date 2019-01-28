@@ -1,15 +1,8 @@
 <template>
-<<<<<<< HEAD
-  <div class="BreadCrumb-container">
-    
-    <div :class="{'circle--active': isActive}" class="circle">{{pageNumber}}</div>
-    <hr :class="{'breadcrumb__hr--active': isActive}" class="breadcrumb__hr" v-show="pageNumber<7">
-=======
   <div class="BreadCrumb-container" v-if="pageNumber<4">
     <div :class="{'circle--active': isActive}" class="circle">{{pageNumber}}
     </div>
     <hr :class="{'breadcrumb__hr--active': isActive}" class="breadcrumb__hr" v-show="pageNumber<3">
->>>>>>> master
   </div>
 </template>
 
