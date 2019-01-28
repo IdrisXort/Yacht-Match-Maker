@@ -18,6 +18,9 @@
         <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
         <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
         <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
+        <!-- LoadingPage wordt nu opgeroepen als een paginanummer, maar dit is puur om dit als een demo te laten zien. 
+        In de final version is LoadingPage natuurlijk niet altijd na pagina drie, maar zal altijd worden gebruikt op moment 
+        dat er wordt gewacht op data, bijv. wanneer er data moet worden gefetched vanuit een API. -->
         <LoadingPage v-if="currentPage==4" :next="goToNextPage" />
         <match-page v-show="currentPage==5" :results="[...results]"/>
         <result-page v-show="currentPage==6" :results="[...results]"/>
@@ -79,7 +82,7 @@ export default {
   data() {
     return {
       currentPage: 0,
-      pageNumbers: [1, 2, 3, 4, 5, 6, 7],
+      pageNumbers: [1, 2, 3, 4, 5],
       questions: data.questions,
       hobbies: data.hobbies,
       icons: data.hobbyIcons,
