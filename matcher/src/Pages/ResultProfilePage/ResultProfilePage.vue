@@ -58,7 +58,7 @@
           <div class="profile-companies-container"></div>
         </div>
       </div>
-      <div>
+      <div class="match-label">
         <b>Op zoek naar type bedrijf:</b>
       </div>
       <div class="row">
@@ -134,5 +134,9 @@ export default {
 
 .profile--hobbies i::before {
   font-size: 30px;
+}
+
+.match-label {
+  margin-bottom: 30px;
 }
 </style>
