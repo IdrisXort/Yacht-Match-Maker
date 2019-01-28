@@ -17,7 +17,7 @@
         <IntroductionPage v-show="currentPage==0"/>
         <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
         <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
-        <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
+        <werk v-show="currentPage==3" :skills="skills" :skillIcons="skillIcons" :locations="locations"/>
         <LoadingPage v-if="currentPage==4" :next="goToNextPage" />
         <match-page v-show="currentPage==5" :results="[...results]"/>
         <result-page v-show="currentPage==6" :results="[...results]"/>
@@ -85,6 +85,7 @@ export default {
       icons: data.hobbyIcons,
       dataToCompare: dataToCompare,
       skills: data.skills,
+      skillIcons: data.skillIcons,
       locations: data.locations,
       results: [],
       person: {
@@ -137,6 +138,7 @@ export default {
       }
     },
     emitMethods() {},
+
     setHobbyClassName(hobby) {
       return data.hobbyIcons[data.hobbies.indexOf(hobby)];
     },

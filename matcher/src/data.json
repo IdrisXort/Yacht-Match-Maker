@@ -72,6 +72,18 @@
     "SQL",
     "Python"
   ],
+  "skillIcons": [
+    "fas fa-plus",
+    "fab fa-html5",
+    "fab fa-css3-alt",
+    "far fa-circle",
+    "fab fa-java",
+    "fab fa-js", 
+    "fab fa-cuttlefish",
+    "fab fa-php",
+    "fab fa-quora",
+    "fab fa-python"
+  ],
   "locations": [
     "Amersfoort",
     "Amsterdam",
