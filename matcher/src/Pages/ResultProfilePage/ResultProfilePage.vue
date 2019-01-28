@@ -86,6 +86,7 @@ export default {
   border: 1.5px solid #87a0e6;
   border-radius: 8px;
   padding: 20px;
+  margin-bottom: 40px;
 }
 .profile--picture {
   margin-bottom: 20px;
