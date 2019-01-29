@@ -28,6 +28,7 @@ export default {
   text-align: center;
   display: inline-table;
   width: 180px;
+  transition: 1s;
   margin: 10px 25px 10px 0px;
 }
 .checkbox-container input {
