@@ -44,14 +44,25 @@
               </div>
             </div>
           </div>
-          <div class="profile--hobbies-container">
+          <div class="profile--icons-container">
             <p>
               <b>Hobbies</b>
             </p>
             <div class="row">
-              <div class="profile--hobbies col-sm-2" v-for="(hobby, index) in hobbies" :key="index">
+              <div class="profile--icons col-sm-2" v-for="(hobby, index) in hobbies" :key="index">
                 <i :class="setHobbyClassName(hobby)"></i>
                 <p>{{hobby}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="profile--hardskills-container">
+            <p>
+              <b>HardSkills</b>
+            </p>
+            <div class="row">
+              <div class="profile--icons col-sm-2" v-for="(skill, index) in skills" :key="index">
+                <i :class="setHardskillClassName(skill)"></i>
+                <p>{{skill}}</p>
               </div>
             </div>
           </div>
@@ -75,7 +86,7 @@
 <script>
 import Match from "../../Components/Match/Match";
 export default {
-  props: ["hobbies", "setHobbyClassName", "name", "results", "oneliner"],
+  props: ["hobbies", "setHobbyClassName", "skills", "setHardskillClassName", "name", "results", "oneliner"],
   components: {
     Match: Match,
   }
@@ -123,17 +134,17 @@ export default {
   width: 90%;
 }
 
-.profile--hobbies {
+.profile--icons {
   text-align: center;
   display: inline-table;
 }
 
-.profile--hobbies i {
+.profile--icons i {
   position: relative;
   padding: 10px;
 }
 
-.profile--hobbies i::before {
+.profile--icons i::before {
   font-size: 30px;
 }
 

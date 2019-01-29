@@ -30,6 +30,8 @@
         :oneliner="person.unProcessedData.info"
         :hobbies="person.unProcessedData.hobbies"
         :setHobbyClassName="setHobbyClassName"
+        :skills="person.processiveData.hardSkills"
+        :setHardskillClassName="setHardskillClassName"
       />
       <result-page v-show="currentPage==7" :results="[...results]"/>
       <div class="button__align--center">
@@ -156,6 +158,9 @@ export default {
 
     setHobbyClassName(hobby) {
       return data.hobbyIcons[data.hobbies.indexOf(hobby)];
+    },
+    setHardskillClassName(skill) {
+      return data.skillIcons[data.skills.indexOf(skill)];
     },
     goToPreviousPage() {
       if (this.currentPage > 1) {
