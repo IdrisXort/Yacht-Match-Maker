@@ -175,6 +175,11 @@ export default {
         }
         this.results[index] = {
           companyName: company.CompanyName,
+          sector: company.Sector,
+          location: company.Location,
+          capacity: company.Capacity,
+          hardskills: company.HardSkills,
+          softskills: company.SoftSkills,
           totalMatch: softSkillMatch + hardSkillMatch + locationMatch
         };
         softSkillMatch = 0;

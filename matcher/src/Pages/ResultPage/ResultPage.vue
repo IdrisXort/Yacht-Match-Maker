@@ -16,6 +16,11 @@
           v-for="(result,index) in results.sort(function(res1,res2){return res2.totalMatch-res1.totalMatch})"
           :key="index"
           :companyName="result.companyName"
+          :sector="result.sector"
+          :location="result.location"
+          :capacity="result.capacity"
+          :hardskills="result.hardskills"
+          :softskills="result.softskills"
           :matchPercentage="result.totalMatch"
           />
         <!-- </tbody>
