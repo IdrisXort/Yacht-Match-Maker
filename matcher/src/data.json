@@ -51,6 +51,19 @@
       "option2": "Gedisciplineerd"
     }
   ],
+  "breadcrumbIcons": [
+    "fas fa-user",
+    "fas fa-star",
+    "fas fa-building",
+    "fas fa-spinner",
+    "fas fa-poll-h",
+    "fas fa-address-card"
+  ],
+  "breadcrumbSpeechBubbles": [
+    "Graag willen we wat informatie van je hebben",
+    "Wat voor persoonlijkheid heb je?",
+    "Hoe ziet de werkplek van je droombaan uit?"
+  ],
   "hobbies": ["Sporten", "Muziek", "Fotograferen", "Koken", "Tekenen", "Lezen"],
   "hobbyIcons": [
     "fas fa-running",
@@ -71,6 +84,18 @@
     "PHP",
     "SQL",
     "Python"
+  ],
+  "skillIcons": [
+    "fas fa-plus",
+    "fab fa-html5",
+    "fab fa-css3-alt",
+    "far fa-circle",
+    "fab fa-java",
+    "fab fa-js", 
+    "fab fa-cuttlefish",
+    "fab fa-php",
+    "fab fa-quora",
+    "fab fa-python"
   ],
   "locations": [
     "Amersfoort",

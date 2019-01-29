@@ -2,7 +2,7 @@
   <div class="checkbox-container" :class="{'icon-active': status}">
     <p>{{hobby}}</p>
      <i :class="icon" @click="status=!status"></i>
-    <input type="checkbox" :checked="status" @click="status=!status" name="hobby" :value="hobby">
+    <input type="checkbox" :checked="status" @click="status=!status" name="hobby" :value="hobby" hidden>
   </div>
 </template>
 <script>

@@ -5,7 +5,7 @@
         <br />
         <Slider label="Geef aan op de schaal hoe groot het bedrijf is waar je het liefst werkt"/>
         <br />
-        <hard-skills :skills="skills" label="Kies je Hard Skills" />
+        <hard-skills :skills="skills" :skillIcons="skillIcons" label="Kies je Hard Skills" />
         <br />
     </div>
 </template>
@@ -22,7 +22,7 @@ export default {
     data(){
         return{}
     },
-    props:['skills', 'locations']
+    props:['skills', 'locations', 'skillIcons']
 }
 </script>
 
