@@ -54,7 +54,10 @@
   "breadcrumbIcons": [
     "fas fa-user",
     "fas fa-star",
-    "fas fa-building"
+    "fas fa-building",
+    "fas fa-spinner",
+    "fas fa-poll-h",
+    "fas fa-address-card"
   ],
   "hobbies": ["Sporten", "Muziek", "Fotograferen", "Koken", "Tekenen", "Lezen"],
   "hobbyIcons": [
