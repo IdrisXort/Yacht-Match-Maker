@@ -104,7 +104,7 @@ export default {
   border: 1.5px solid #87a0e6;
   border-radius: 8px;
   height: 230px;
-  background-image: url("../../assets/images/sample-image.jpg");
+  background-image: url("../../assets/images/sample-image.png");
   background-position: center;
   background-size: cover;
 }
