@@ -4,17 +4,19 @@
       <Logo @click.native="goToHomePage"/>
     </div>
     <div class="container">
-      <div class="Bread-Crumbs" v-if="currentPage>0">
+
+      <!-- <div class="Bread-Crumbs" v-if="currentPage>0">
         <bread-crumb
           v-for="(pageNumber,index) in pageNumbers"
           :key="index"
           :pageNumber="pageNumber"
-          :breadcrumbIcons="breadcrumbIcons[index]"
+          :breadcrumbIcons="breadcrumbIcons"
           :isActive="pageNumber==currentPage"
           @click.native="goToPageNumber(pageNumber)"
           v-show="currentPage<4"
         />
-      </div>
+      </div> -->
+      <BreadCrumbs :currentPage="currentPage" :pageNumbers="pageNumbers" :breadcrumbIcons="breadcrumbIcons" :goToPageNumber="goToPageNumber" />
       <IntroductionPage v-show="currentPage==0"/>
       <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
       <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
@@ -61,7 +63,7 @@ import WieBenIk from "./Pages/WieBenIk/WieBenIk";
 import Werk from "./Pages/WerkPage/Werk";
 import Button from "./Components/Buttons/Button";
 import Logo from "./Components/Logo/Logo";
-import BreadCrumb from "./Components/BreadCrumbs/BreadCrumb";
+import BreadCrumbs from "./Components/BreadCrumbs/BreadCrumbs";
 import Footer from "./Components/Footer/Footer";
 import data from "./data.json";
 import LeerStijlePage from "./Pages/LeerStijlPage/LeerStijlPage";
@@ -81,7 +83,7 @@ export default {
     startButton: Button,
     matchButton: Button,
     Logo: Logo,
-    BreadCrumb: BreadCrumb,
+    BreadCrumbs: BreadCrumbs,
     Footer: Footer,
     LeerStijlePage: LeerStijlePage,
     matchButton: Button,
