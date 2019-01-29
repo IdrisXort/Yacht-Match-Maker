@@ -9,6 +9,7 @@
           v-for="(pageNumber,index) in pageNumbers"
           :key="index"
           :pageNumber="pageNumber"
+          :breadcrumbIcons="breadcrumbIcons[index]"
           :isActive="pageNumber==currentPage"
           @click.native="goToPageNumber(pageNumber)"
           v-show="currentPage<4"
@@ -97,6 +98,7 @@ export default {
       questions: data.questions,
       hobbies: data.hobbies,
       icons: data.hobbyIcons,
+      breadcrumbIcons: data.breadcrumbIcons,
       dataToCompare: dataToCompare,
       skills: data.skills,
       locations: data.locations,

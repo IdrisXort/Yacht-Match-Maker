@@ -1,7 +1,7 @@
 <template>
   <div class="BreadCrumb-container" v-if="pageNumber<4">
     <div :class="{'circle--active': isActive}" class="circle">
-      {{pageNumber}}
+      <i :class="breadcrumbIcons"></i>
       </div>
     <hr :class="{'breadcrumb__hr--active': isActive}" class="breadcrumb__hr" v-show="pageNumber<3">
   </div>
@@ -18,7 +18,7 @@ export default {
       methods
     );
   },
-  props: ["pageNumber", "isActive"]
+  props: ["pageNumber", "isActive", "breadcrumbIcons"]
 };
 </script>
 <style>
