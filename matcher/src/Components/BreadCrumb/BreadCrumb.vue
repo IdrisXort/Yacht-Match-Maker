@@ -2,9 +2,9 @@
   <div class="BreadCrumb-container">
     <div class="BreadCrumb-relative">
       <div class="speech-container">
-        <p class="speech" v-if="pageNumber<4 && isActive">
+        <div class="speech" v-if="pageNumber<4 && isActive">
           <span>{{breadcrumbSpeechBubbles}}</span>
-        </p>
+        </div>
       </div>
     </div>
     <div class="BreadCrumb-circle-hr-container" v-if="pageNumber<4">
@@ -41,23 +41,24 @@ export default {
 </script>
 <style>
 .circle {
-  width: 35px;
-  height: 35px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
-  font-size: 12px;
-  line-height: 35px;
+  font-size: 22px;
+  line-height: 50px;
   text-align: center;
-  margin: 10px 5px;
+  margin: 10px;
   background-color: #fff;
   color: #0f1941;
   cursor: pointer;
   border: 1px solid #0f1941;
+  transition: 0.5s;
 }
 
 .circle:hover {
   background-color: #0f1941;
   color: #fff;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .circle--active {
@@ -68,7 +69,7 @@ export default {
 
 .breadcrumb__hr {
   height: 1px;
-  width: 100px;
+  width: 300px;
   margin: auto;
   background-color: #0f1941;
 }
@@ -76,7 +77,6 @@ export default {
 .breadcrumb__hr--active {
   height: 3px;
   transition: 0.2s;
-  border-radius: 10px;
 }
 
 .BreadCrumb-circle-hr-container {
@@ -108,12 +108,12 @@ export default {
 .speech {
   position: relative;
   color: #fff;
-  font-size: 12px;
-  width: 160px;
+  font-size: 15px;
+  width: 190px;
   padding: 12px;
-  height: 55px;
-  text-align: center;
-  line-height: 15px;
+  height: 65px;
+  text-align: left;
+  line-height: 19px;
   background-color: #0f1941;
   border-radius: 7px;
 }
@@ -124,7 +124,7 @@ export default {
   width: 0;
   height: 0;
   left: 25px;
-  top: 55px;
+  top: 65px;
   border: 8px solid;
   border-color: #0f1941 transparent transparent #0f1941;
 }
@@ -139,7 +139,7 @@ export default {
 
 .speech-container {
   position: absolute;
-  top: -60px;
-  left: 15px;
+  top: -65px;
+  left: 50px;
 }
 </style>
