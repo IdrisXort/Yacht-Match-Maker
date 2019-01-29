@@ -17,7 +17,7 @@
       <IntroductionPage v-show="currentPage==0"/>
       <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
       <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
-      <werk v-show="currentPage==3" :skills="skills" :locations="locations"/>
+      <werk v-show="currentPage==3" :skills="skills" :skillIcons="skillIcons" :locations="locations"/>
       <!-- LoadingPage wordt nu opgeroepen als een paginanummer, maar dit is puur om dit als een demo te laten zien. 
         In de final version is LoadingPage natuurlijk niet altijd na pagina drie, maar zal altijd worden gebruikt op moment 
       dat er wordt gewacht op data, bijv. wanneer er data moet worden gefetched vanuit een API.-->
@@ -99,6 +99,7 @@ export default {
       icons: data.hobbyIcons,
       dataToCompare: dataToCompare,
       skills: data.skills,
+      skillIcons: data.skillIcons,
       locations: data.locations,
       results: [],
       person: {
@@ -152,6 +153,7 @@ export default {
       }
     },
     emitMethods() {},
+
     setHobbyClassName(hobby) {
       return data.hobbyIcons[data.hobbies.indexOf(hobby)];
     },

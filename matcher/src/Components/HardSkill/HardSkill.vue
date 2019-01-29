@@ -1,15 +1,22 @@
 <template>
   <div class="checkbox-container" :class="{'icon-active': status}">
     <p>{{skill}}</p>
-    <input type="checkbox" @click="getSkill" name="skill" :value="skill">
+      <i :class="skillIcons" @click="status=!status"></i>
+    <input type="checkbox" :checked="status" @click="status=!status" name="skill" :value="skill" hidden>
   </div>
 </template>
 <script>
 export default {
-  props: ["skill",'getSkill'],
+  props: ["skill", "skillIcons", 'addSkill', 'deleteSkill', ], 
   data: function(){
     return {
       status: false
+    }
+  },
+    watch: {
+    status(doesntexist, exists) {
+      if(doesntexist)this.addSkill(this.skill);
+      if(exists)this.deleteSkill(this.skill);
     }
   }
 };
