@@ -4,19 +4,13 @@
       <Logo @click.native="goToHomePage"/>
     </div>
     <div class="container">
-
-      <!-- <div class="Bread-Crumbs" v-if="currentPage>0">
-        <bread-crumb
-          v-for="(pageNumber,index) in pageNumbers"
-          :key="index"
-          :pageNumber="pageNumber"
-          :breadcrumbIcons="breadcrumbIcons"
-          :isActive="pageNumber==currentPage"
-          @click.native="goToPageNumber(pageNumber)"
-          v-show="currentPage<4"
-        />
-      </div> -->
-      <BreadCrumbs :currentPage="currentPage" :pageNumbers="pageNumbers" :breadcrumbIcons="breadcrumbIcons" :goToPageNumber="goToPageNumber" />
+      <BreadCrumbs
+        :currentPage="currentPage"
+        :pageNumbers="pageNumbers"
+        :breadcrumbIcons="breadcrumbIcons"
+        :breadcrumbSpeechBubbles="breadcrumbSpeechBubbles"
+        :goToPageNumber="goToPageNumber"
+      />
       <IntroductionPage v-show="currentPage==0"/>
       <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
       <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
@@ -101,6 +95,7 @@ export default {
       hobbies: data.hobbies,
       icons: data.hobbyIcons,
       breadcrumbIcons: data.breadcrumbIcons,
+      breadcrumbSpeechBubbles: data.breadcrumbSpeechBubbles,
       dataToCompare: dataToCompare,
       skills: data.skills,
       locations: data.locations,

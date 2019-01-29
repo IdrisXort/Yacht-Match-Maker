@@ -1,11 +1,13 @@
 <template>
-  <div class="dinge">
-    <div class="proberen">
+  <div class="BreadCrumb-container">
+    <div class="BreadCrumb-relative">
       <div class="speech-container">
-        <p class="speech" v-if="pageNumber<4 && isActive">Wolkje</p>
+        <p class="speech" v-if="pageNumber<4 && isActive">
+          <span>{{breadcrumbSpeechBubbles}}</span>
+        </p>
       </div>
     </div>
-    <div class="BreadCrumb-container" v-if="pageNumber<4">
+    <div class="BreadCrumb-circle-hr-container" v-if="pageNumber<4">
       <div :class="{'circle--active': isActive}" class="circle">
         <i :class="breadcrumbIcons"></i>
       </div>
@@ -29,7 +31,12 @@ export default {
       methods
     );
   },
-  props: ["pageNumber", "isActive", "breadcrumbIcons"]
+  props: [
+    "pageNumber",
+    "isActive",
+    "breadcrumbIcons",
+    "breadcrumbSpeechBubbles"
+  ]
 };
 </script>
 <style>
@@ -72,7 +79,7 @@ export default {
   border-radius: 10px;
 }
 
-.BreadCrumb-container {
+.BreadCrumb-circle-hr-container {
   display: inline-flex;
 }
 
@@ -99,45 +106,34 @@ export default {
 }
 
 .speech {
-    position: relative;
-    color: #fff;
-    /* display: block; */
-    width: 130px;
-    height: 55px;
-    text-align: center;
-    line-height: 55px;
-    background-color: #0f1941;
-    /* border: 8px solid #666; */
-    border-radius: 7px;
+  position: relative;
+  color: #fff;
+  font-size: 12px;
+  width: 160px;
+  padding: 12px;
+  height: 55px;
+  text-align: center;
+  line-height: 15px;
+  background-color: #0f1941;
+  border-radius: 7px;
 }
 
 .speech::before {
-      content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 25px;
-    top: 55px;
-    border: 8px solid;
-    border-color: #0f1941 transparent transparent #0f1941;
-}
-
-/* .speech::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 0;
-  left: 38px;
-  top: 80px;
-  border: 20px solid;
-  border-color: #fff transparent transparent #fff;
-} */
+  left: 25px;
+  top: 55px;
+  border: 8px solid;
+  border-color: #0f1941 transparent transparent #0f1941;
+}
 
-.dinge {
+.BreadCrumb-container {
   display: inline-table;
 }
 
-.proberen {
+.BreadCrumb-relative {
   position: relative;
 }
 

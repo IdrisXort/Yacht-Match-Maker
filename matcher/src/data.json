@@ -59,6 +59,11 @@
     "fas fa-poll-h",
     "fas fa-address-card"
   ],
+  "breadcrumbSpeechBubbles": [
+    "Graag willen we wat informatie van je hebben",
+    "Wat voor persoonlijkheid heb je?",
+    "Hoe ziet de werkplek van je droombaan uit?"
+  ],
   "hobbies": ["Sporten", "Muziek", "Fotograferen", "Koken", "Tekenen", "Lezen"],
   "hobbyIcons": [
     "fas fa-running",

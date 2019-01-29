@@ -5,6 +5,7 @@
           :key="index"
           :pageNumber="pageNumber"
           :breadcrumbIcons="breadcrumbIcons[index]"
+          :breadcrumbSpeechBubbles="breadcrumbSpeechBubbles[index]"
           :isActive="pageNumber==currentPage"
           @click.native="goToPageNumber(pageNumber)"
           v-show="currentPage<4"
@@ -14,7 +15,7 @@
 <script>
 import Breadcrumb from "../BreadCrumb/BreadCrumb";
 export default {
-  props: ["currentPage", "pageNumbers", "breadcrumbIcons", "goToPageNumber"],
+  props: ["currentPage", "pageNumbers", "breadcrumbIcons", "goToPageNumber", "breadcrumbSpeechBubbles"],
   components: {
     Breadcrumb: Breadcrumb
   }
