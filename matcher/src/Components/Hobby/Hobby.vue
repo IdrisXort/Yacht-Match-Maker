@@ -29,6 +29,8 @@ export default {
   display: inline-table;
   width: 180px;
   margin: 15px 30px 15px 0px;
+  transition: 1s;
+
 }
 .checkbox-container input {
   display: block;
