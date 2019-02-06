@@ -9,7 +9,7 @@
               <img src="../../assets/svg/klein.svg" class="icon-company">
               <p>
                 Klein
-                <span><50 mensen</span>
+                <span>Minder dan 50 mensen</span>
               </p>
             </div>
           </div>
@@ -18,7 +18,7 @@
               <img src="../../assets/svg/middel.svg" class="icon-company">
               <p>
                 Middel
-                <span><250 mensen</span>
+                <span>Minder dan 250 mensen</span>
               </p>
             </div>
           </div>
@@ -27,7 +27,7 @@
               <img src="../../assets/svg/multinational.svg" class="icon-company">
               <p>
                 Multinational
-                <span>>250 mensen</span>
+                <span>Meer dan 250 mensen</span>
               </p>
             </div>
           </div>
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import { EventBus } from "./../../Event-bus";
 export default {
   data: function() {
     return {
@@ -62,6 +63,9 @@ export default {
     };
   },
   props: ["label"],
+  updated() {
+    EventBus.$emit("capacityChanged", this.statusRange);
+  },
   methods: {
     getRangeValue() {
       var info = this.numberRange;
@@ -84,7 +88,6 @@ export default {
 </script>
 
 <style>
-
 .slider {
   -webkit-appearance: none;
   width: 100%;

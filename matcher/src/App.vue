@@ -14,7 +14,12 @@
       <IntroductionPage v-show="currentPage==0"/>
       <wie-ben-ik v-show="currentPage==1" :hobbies="hobbies" :icons="icons"/>
       <leer-stijle-page :questions="questions" v-show="currentPage==2"/>
-      <werk v-show="currentPage==3" :skills="skills" :skillIcons="skillIcons" :locations="locations"/>
+      <werk
+        v-show="currentPage==3"
+        :skills="skills"
+        :skillIcons="skillIcons"
+        :locations="locations"
+      />
       <!-- LoadingPage wordt nu opgeroepen als een paginanummer, maar dit is puur om dit als een demo te laten zien. 
         In de final version is LoadingPage natuurlijk niet altijd na pagina drie, maar zal altijd worden gebruikt op moment 
       dat er wordt gewacht op data, bijv. wanneer er data moet worden gefetched vanuit een API.-->
@@ -113,7 +118,8 @@ export default {
         processiveData: {
           softSkills: [],
           hardSkills: [],
-          location: ""
+          location: "",
+          capacity: ""
         }
       }
     };
@@ -134,6 +140,9 @@ export default {
         });
         EventBus.$on("hobbyChanged", hobbies => {
           this.person.unProcessedData.hobbies = hobbies;
+        });
+        EventBus.$on("capacityChanged", capacity => {
+          this.person.processiveData.capacity = capacity;
         });
         EventBus.$on("SelfInfoChanged", info => {
           this.person.unProcessedData.info = info;
@@ -173,6 +182,7 @@ export default {
       let softSkillMatch = 0;
       let hardSkillMatch = 0;
       let locationMatch = 0;
+      let capacityMatch = 0;
       let personHardSkills = this.person.processiveData.hardSkills;
       let personSoftSkills = this.person.processiveData.softSkills;
       this.dataToCompare.forEach((company, index) => {
@@ -193,6 +203,9 @@ export default {
         if (this.person.processiveData.location == company.Location) {
           locationMatch++;
         }
+        if (this.person.processiveData.capacity == company.Capacity) {
+          capacityMatch++;
+        }
         this.results[index] = {
           companyName: company.CompanyName,
           sector: company.Sector,
@@ -200,11 +213,13 @@ export default {
           capacity: company.Capacity,
           hardskills: company.HardSkills,
           softskills: company.SoftSkills,
-          totalMatch: softSkillMatch + hardSkillMatch + locationMatch
+          totalMatch:
+            softSkillMatch + hardSkillMatch + locationMatch + capacityMatch
         };
         softSkillMatch = 0;
         hardSkillMatch = 0;
         locationMatch = 0;
+        capacityMatch = 0;
       });
     },
     goToHomePage() {
