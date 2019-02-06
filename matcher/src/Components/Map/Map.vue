@@ -1,8 +1,8 @@
 <template>
   <div>
     <label>{{label}}</label>
-      <!--alvast een map opgebouwd dat later gebruikt kan worden--> 
-      <!-- <div class="map"> alvast een map opgebouwd dat later gebruikt kan worden
+    <!--alvast een map opgebouwd dat later gebruikt kan worden-->
+    <!-- <div class="map"> alvast een map opgebouwd dat later gebruikt kan worden
         <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 800 800"
@@ -87,7 +87,7 @@
           </g>
         </a>  
       </svg>
-    </div>  -->
+    </div>-->
     <div class="dropdown">
       <!-- idee voor als we een map gaan gebruiken -->
       <!-- <img id="Image-Maps-Com-image-maps-2019-01-14-024229" src="http://www.image-maps.com/m/private/0/p6qahjsb45e67i40mj6a25kij5_nederland.png" border="0" width="504" height="597" orgWidth="504" orgHeight="597" usemap="#image-maps-2019-01-14-024229" alt="" />
@@ -97,7 +97,7 @@
           <area  alt="" title="" href="http://www.image-maps.com/" shape="poly" coords="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" style="outline:none;" target="_self"     />
           <area  alt="" title="" href="http://www.image-maps.com/" shape="poly" coords="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" style="outline:none;" target="_self"     />
           <area  alt="" title="" href="http://www.image-maps.com/" shape="poly" coords="147,332,147,332,147,332,147,332,147,332,147,332,147,332,147,332,147,332,147,332,147,332,147,332,147,332,147,332,147,332,147,332" style="outline:none;" target="_self"     />
-      </map> -->
+      </map>-->
       <Button
         v-html="text"
         class="dropdown-toggle button__dropdown"
@@ -135,15 +135,14 @@ export default {
   methods: {
     setLocation(index) {
       EventBus.$emit("ChooseLocation", this.locations[index]);
-      this.text=this.locations[index];
-      console.log(this.locations[index]);
+      this.text = this.locations[index];
     }
   }
 };
 </script>
 <style scoped>
-  /* styling dat voor de map gebruikt kan worden */
-  /* .map {
+/* styling dat voor de map gebruikt kan worden */
+/* .map {
     width: 100%;
     height: auto;
     color: white;
